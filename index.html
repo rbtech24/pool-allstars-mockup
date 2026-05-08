@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pool All-Stars — Homepage Revamp Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1F3A;
+  --navy-2:#091529;
+  --ink:#0A0A0A;
+  --cyan:#00B4C8;
+  --cyan-2:#06D6E0;
+  --sand:#F4F1EA;
+  --paper:#FBFAF6;
+  --slate:#475569;
+  --line:rgba(11,31,58,0.10);
+  --line-dark:rgba(255,255,255,0.12);
+  --red:#E63946;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  font-size:16px;line-height:1.55;color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+.h-display{
+  font-family:'Archivo',sans-serif;
+  font-weight:900;
+  letter-spacing:-0.02em;
+  line-height:0.96;
+  text-transform:none;
+}
+.h-eyebrow{
+  font-family:'Archivo',sans-serif;
+  font-weight:700;
+  font-size:0.72rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+}
+.serif{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 1.5rem}
+.wrap-narrow{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+
+/* ================= TOP UTILITY BAR ================= */
+.utility{
+  background:var(--ink);color:#cbd5e1;
+  font-size:0.78rem;letter-spacing:0.02em;
+}
+.utility .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:0.6rem;padding-bottom:0.6rem}
+.utility a{color:#e2e8f0;display:inline-flex;align-items:center;gap:0.4rem}
+.utility a:hover{color:var(--cyan-2)}
+.util-left{display:flex;gap:1.4rem;flex-wrap:wrap}
+.util-right{display:flex;gap:1.4rem;align-items:center;flex-wrap:wrap}
+.util-pill{padding:0.18rem 0.55rem;border:1px solid #334155;border-radius:999px;color:#94a3b8;font-weight:600;font-size:0.7rem}
+
+/* ================= HEADER ================= */
+.header{
+  background:#fff;
+  position:sticky;top:0;z-index:50;
+  border-bottom:1px solid var(--line);
+}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding-top:1.1rem;padding-bottom:1.1rem}
+.brand{display:flex;align-items:center;gap:0.6rem}
+.brand-mark{
+  width:42px;height:42px;border-radius:10px;
+  background:linear-gradient(140deg,var(--navy),var(--cyan));
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  font-family:'Archivo',sans-serif;font-weight:900;font-size:1.1rem;letter-spacing:-0.02em;
+  box-shadow:0 6px 20px -8px rgba(0,180,200,0.5);
+}
+.brand-text{
+  font-family:'Archivo',sans-serif;font-weight:900;font-size:1.15rem;letter-spacing:-0.01em;
+  color:var(--navy);line-height:1;
+}
+.brand-text small{display:block;font-size:0.62rem;font-weight:600;color:var(--slate);letter-spacing:0.18em;margin-top:0.25rem;text-transform:uppercase}
+nav.primary{display:none;gap:2rem;align-items:center}
+nav.primary a{font-weight:500;color:#1e293b;font-size:0.95rem;position:relative}
+nav.primary a:hover{color:var(--navy)}
+nav.primary a.has-caret::after{content:'';display:inline-block;width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);margin-left:0.45rem;opacity:0.6}
+.header-cta{display:none;gap:0.6rem;align-items:center}
+.header-phone{font-weight:700;color:var(--navy);font-size:0.95rem}
+.header-phone small{display:block;font-size:0.65rem;font-weight:600;color:var(--slate);letter-spacing:0.1em;text-transform:uppercase}
+
+@media(min-width:1024px){
+  nav.primary,.header-cta{display:flex}
+}
+
+/* ================= BUTTONS ================= */
+.btn{
+  display:inline-flex;align-items:center;gap:0.55rem;
+  padding:0.95rem 1.4rem;font-weight:700;font-size:0.95rem;
+  border-radius:8px;transition:all 0.18s ease;
+  font-family:'Inter',sans-serif;letter-spacing:-0.005em;
+}
+.btn-primary{background:var(--cyan);color:var(--navy)}
+.btn-primary:hover{background:var(--cyan-2);transform:translateY(-1px)}
+.btn-dark{background:var(--navy);color:#fff}
+.btn-dark:hover{background:var(--navy-2)}
+.btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3)}
+.btn-ghost:hover{background:rgba(255,255,255,0.08)}
+.btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+.btn-outline:hover{background:var(--navy);color:#fff}
+.btn-arrow::after{content:'→';font-weight:400;transform:translateX(0);transition:transform 0.18s}
+.btn:hover.btn-arrow::after{transform:translateX(3px)}
+
+/* ================= HERO ================= */
+.hero{
+  position:relative;
+  background:var(--navy);
+  color:#fff;
+  overflow:hidden;
+  padding:5rem 0 0;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 80% -10%, rgba(0,180,200,0.35), transparent 50%),
+    radial-gradient(ellipse at 0% 100%, rgba(6,214,224,0.18), transparent 60%),
+    var(--navy);
+  z-index:0;
+}
+.hero-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr;gap:3rem;align-items:end;
+}
+.hero-left{padding-bottom:5rem}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.14);
+  padding:0.4rem 0.85rem;border-radius:999px;
+  font-family:'Archivo',sans-serif;font-weight:600;
+  font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:#cbd5e1;margin-bottom:1.75rem;
+}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--cyan-2);box-shadow:0 0 0 4px rgba(6,214,224,0.2)}
+.hero h1{
+  font-family:'Archivo',sans-serif;font-weight:900;
+  font-size:clamp(2.5rem,7vw,5.5rem);line-height:0.95;letter-spacing:-0.025em;
+  color:#fff;margin-bottom:1.5rem;
+}
+.hero h1 .accent{color:var(--cyan-2)}
+.hero h1 .ital{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.02em}
+.hero-sub{
+  font-size:1.15rem;color:rgba(255,255,255,0.78);max-width:30rem;
+  line-height:1.6;margin-bottom:2.25rem;
+}
+
+/* path splitter */
+.paths{
+  display:grid;grid-template-columns:1fr;gap:0.75rem;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:14px;padding:0.75rem;
+  max-width:36rem;
+}
+.path{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.1rem 1.25rem;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:10px;
+  transition:all 0.18s ease;
+  cursor:pointer;
+}
+.path:hover{background:rgba(0,180,200,0.12);border-color:var(--cyan)}
+.path-label{display:flex;align-items:center;gap:0.85rem}
+.path-icon{
+  width:38px;height:38px;border-radius:8px;
+  background:rgba(0,180,200,0.15);color:var(--cyan-2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Archivo',sans-serif;font-weight:900;font-size:0.85rem;
+  flex-shrink:0;
+}
+.path-text strong{display:block;font-size:1rem;color:#fff;letter-spacing:-0.01em}
+.path-text span{display:block;font-size:0.82rem;color:rgba(255,255,255,0.6);margin-top:0.1rem}
+.path-arrow{color:rgba(255,255,255,0.4);font-size:1.4rem;transition:all 0.18s}
+.path:hover .path-arrow{color:var(--cyan-2);transform:translateX(4px)}
+
+.hero-right{position:relative;align-self:stretch;display:flex;align-items:flex-end}
+.hero-card-stack{
+  position:relative;width:100%;
+  display:none;
+}
+.hero-photo{
+  width:100%;border-radius:16px;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.1);
+  box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
+  background:#0a1929;
+  aspect-ratio:4/5;
+  background-image:url('assets/images/hero-bg.jpg');
+  background-size:cover;background-position:center;
+  position:relative;
+}
+.hero-photo::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(11,31,58,0) 40%,rgba(11,31,58,0.7) 100%);
+}
+.hero-floater{
+  position:absolute;background:#fff;color:var(--ink);
+  border-radius:14px;padding:1rem 1.1rem;
+  box-shadow:0 20px 40px -15px rgba(0,0,0,0.5);
+  font-family:'Inter',sans-serif;
+}
+.hero-floater.fl-1{
+  bottom:-1rem;left:-1rem;
+  display:flex;align-items:center;gap:0.85rem;
+  border-left:4px solid var(--cyan);
+}
+.hero-floater.fl-1 .num{
+  font-family:'Archivo',sans-serif;font-weight:900;
+  font-size:1.6rem;color:var(--navy);letter-spacing:-0.02em;line-height:1;
+}
+.hero-floater.fl-1 .lbl{font-size:0.72rem;color:var(--slate);font-weight:600;line-height:1.3}
+
+@media(min-width:1024px){
+  .hero{padding:6rem 0 0}
+  .hero-grid{grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:end}
+  .hero-card-stack{display:block;margin-bottom:-3rem}
+  .hero-left{padding-bottom:6rem}
+}
+
+/* ================= STATS STRIP ================= */
+.stats{
+  background:#fff;
+  border-bottom:1px solid var(--line);
+  position:relative;z-index:2;
+}
+.stats .wrap{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+  padding:0;
+}
+.stat{
+  padding:2rem 1.5rem;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.stat:nth-child(2n){border-right:none}
+.stat .num{
+  font-family:'Archivo',sans-serif;font-weight:900;
+  font-size:clamp(1.8rem,4vw,2.6rem);color:var(--navy);
+  letter-spacing:-0.025em;line-height:1;margin-bottom:0.45rem;
+}
+.stat .num em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--cyan)}
+.stat .lbl{font-size:0.78rem;color:var(--slate);font-weight:500;letter-spacing:0.04em}
+
+@media(min-width:768px){
+  .stats .wrap{grid-template-columns:repeat(4,1fr)}
+  .stat{border-bottom:none;padding:2.25rem 1.5rem}
+  .stat:last-child{border-right:none}
+}
+
+/* ================= SECTION FRAME ================= */
+section.block{padding:6rem 0}
+.section-head{margin-bottom:3rem;max-width:54rem}
+.section-head .h-eyebrow{color:var(--cyan);margin-bottom:1rem;display:inline-block}
+.section-head h2{
+  font-family:'Archivo',sans-serif;font-weight:900;
+  font-size:clamp(2rem,4.5vw,3.4rem);letter-spacing:-0.025em;line-height:1.02;
+  color:var(--navy);margin-bottom:1rem;
+}
+.section-head h2 .ital{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
+.section-head p{font-size:1.1rem;color:var(--slate);max-width:42rem}
+
+/* ================= COMMERCIAL FEATURE ================= */
+.commercial{background:var(--sand)}
+.commercial .head-row{
+  display:grid;grid-template-columns:1fr;gap:2rem;align-items:end;margin-bottom:3rem;
+}
+@media(min-width:900px){
+  .commercial .head-row{grid-template-columns:1.4fr 1fr;gap:4rem}
+}
+.commercial-types{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;
+}
+@media(min-width:768px){.commercial-types{grid-template-columns:repeat(4,1fr)}}
+.ct{
+  background:#fff;padding:1.75rem 1.4rem;
+  display:flex;flex-direction:column;gap:0.85rem;
+  transition:all 0.18s ease;cursor:pointer;
+  position:relative;
+}
+.ct:hover{background:var(--navy);color:#fff}
+.ct:hover .ct-icon{background:rgba(0,180,200,0.15);color:var(--cyan-2)}
+.ct:hover .ct-meta{color:rgba(255,255,255,0.65)}
+.ct-icon{
+  width:42px;height:42px;border-radius:10px;
+  background:#EEF2F7;color:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Archivo',sans-serif;font-weight:900;font-size:0.95rem;
+  transition:all 0.18s;
+}
+.ct h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:-0.01em}
+.ct-meta{font-size:0.85rem;color:var(--slate);line-height:1.5}
+
+.commercial-cta{
+  background:var(--navy);color:#fff;
+  border-radius:14px;padding:2.5rem;
+  display:grid;grid-template-columns:1fr;gap:2rem;align-items:center;
+  margin-top:3rem;
+  background-image:
+    radial-gradient(ellipse at 100% 0%, rgba(0,180,200,0.25), transparent 50%);
+}
+@media(min-width:900px){
+  .commercial-cta{grid-template-columns:1.5fr 1fr;padding:3rem}
+}
+.commercial-cta h3{
+  font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(1.5rem,3vw,2.1rem);
+  letter-spacing:-0.02em;line-height:1.05;margin-bottom:0.85rem;color:#fff;
+}
+.commercial-cta p{color:rgba(255,255,255,0.75);font-size:0.98rem;line-height:1.6}
+.commercial-cta .ctas{display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:0.5rem}
+.cc-checks{display:grid;grid-template-columns:1fr;gap:0.6rem}
+.cc-check{
+  display:flex;align-items:center;gap:0.6rem;
+  font-size:0.92rem;color:rgba(255,255,255,0.85);
+}
+.cc-check span{
+  width:22px;height:22px;border-radius:50%;
+  background:rgba(0,180,200,0.18);color:var(--cyan-2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.75rem;font-weight:900;flex-shrink:0;
+}
+
+/* ================= SYSTEM (HOW WE OPERATE) ================= */
+.system{background:#fff}
+.system-grid{
+  display:grid;grid-template-columns:1fr;gap:1.25rem;
+}
+@media(min-width:900px){.system-grid{grid-template-columns:repeat(3,1fr)}}
+.sys-card{
+  border:1px solid var(--line);border-radius:14px;
+  padding:2rem 1.75rem;background:#fff;
+  display:flex;flex-direction:column;gap:1rem;
+  position:relative;overflow:hidden;
+  transition:all 0.18s ease;
+}
+.sys-card:hover{transform:translateY(-3px);box-shadow:0 20px 40px -20px rgba(11,31,58,0.18);border-color:var(--cyan)}
+.sys-num{
+  font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
+  font-size:3rem;line-height:1;color:var(--cyan);letter-spacing:-0.04em;
+}
+.sys-card h3{
+  font-family:'Archivo',sans-serif;font-weight:800;font-size:1.25rem;letter-spacing:-0.01em;
+  color:var(--navy);
+}
+.sys-card p{font-size:0.95rem;color:var(--slate);line-height:1.65}
+.sys-tag{
+  font-family:'Archivo',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--cyan);margin-top:auto;padding-top:0.75rem;border-top:1px dashed var(--line);
+}
+
+/* ================= FLEET / OPS BANNER ================= */
+.ops-banner{
+  background:var(--navy);color:#fff;
+  padding:0;overflow:hidden;
+}
+.ops-banner-grid{
+  display:grid;grid-template-columns:1fr;gap:0;
+}
+@media(min-width:900px){.ops-banner-grid{grid-template-columns:1fr 1fr;align-items:stretch}}
+.ops-text{padding:5rem 1.5rem;display:flex;flex-direction:column;justify-content:center;max-width:36rem;margin:0 auto}
+.ops-img{
+  background-image:url('assets/images/pool-allstars-truck.png');
+  background-size:cover;background-position:center;
+  min-height:380px;
+  position:relative;
+}
+.ops-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,transparent 30%)}
+.ops-text h2{
+  font-family:'Archivo',sans-serif;font-weight:900;
+  font-size:clamp(1.9rem,4vw,3rem);letter-spacing:-0.025em;line-height:1;
+  color:#fff;margin-bottom:1.25rem;
+}
+.ops-text h2 .ital{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--cyan-2)}
+.ops-text p{color:rgba(255,255,255,0.72);font-size:1.02rem;line-height:1.65;margin-bottom:1.75rem}
+.ops-list{display:grid;grid-template-columns:1fr 1fr;gap:0.55rem 1.5rem;margin-bottom:2rem}
+.ops-list li{list-style:none;display:flex;align-items:center;gap:0.55rem;font-size:0.9rem;color:rgba(255,255,255,0.85)}
+.ops-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cyan-2);flex-shrink:0}
+
+/* ================= RESIDENTIAL ================= */
+.residential{background:var(--paper);position:relative}
+.res-grid{
+  display:grid;grid-template-columns:1fr;gap:3rem;align-items:center;
+}
+@media(min-width:900px){.res-grid{grid-template-columns:1fr 1fr;gap:5rem}}
+.res-image{
+  border-radius:18px;overflow:hidden;
+  background:linear-gradient(135deg,#0B1F3A 0%,#00B4C8 100%);
+  aspect-ratio:5/4;
+  position:relative;
+  box-shadow:0 25px 50px -20px rgba(11,31,58,0.3);
+  background-image:url('assets/images/hero-bg.jpg');
+  background-size:cover;background-position:center;
+}
+.res-image::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 50%,rgba(11,31,58,0.55));
+}
+.res-quote{
+  position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;
+  color:#fff;z-index:2;
+  font-family:'Instrument Serif',serif;font-style:italic;
+  font-size:1.4rem;line-height:1.3;letter-spacing:-0.01em;
+}
+.res-quote-attr{
+  font-family:'Inter',sans-serif;font-style:normal;font-weight:600;
+  font-size:0.8rem;color:rgba(255,255,255,0.75);margin-top:0.6rem;letter-spacing:0.04em;
+}
+.res-content h2{
+  font-family:'Archivo',sans-serif;font-weight:900;
+  font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-0.025em;line-height:1;color:var(--navy);
+  margin-bottom:1.25rem;
+}
+.res-content h2 .ital{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
+.res-content p{font-size:1.05rem;color:var(--slate);line-height:1.65;margin-bottom:1.25rem}
+.res-checks{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem 1.5rem;margin:1.5rem 0 2rem}
+.res-checks li{list-style:none;display:flex;align-items:center;gap:0.55rem;font-size:0.92rem;color:var(--ink);font-weight:500}
+.res-checks li::before{
+  content:'✓';color:var(--cyan);font-weight:900;
+  display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:rgba(0,180,200,0.15);
+  font-size:0.75rem;
+}
+
+/* ================= NATIONAL FOOTPRINT ================= */
+.footprint{
+  background:var(--navy);color:#fff;
+  padding:6rem 0;position:relative;overflow:hidden;
+}
+.footprint::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 20% 50%, rgba(0,180,200,0.18), transparent 60%);
+}
+.fp-inner{position:relative;z-index:1}
+.fp-head{text-align:center;max-width:48rem;margin:0 auto 3rem}
+.fp-head .h-eyebrow{color:var(--cyan-2);margin-bottom:1rem;display:inline-block}
+.fp-head h2{
+  font-family:'Archivo',sans-serif;font-weight:900;
+  font-size:clamp(2rem,4.5vw,3.4rem);letter-spacing:-0.025em;line-height:1;color:#fff;margin-bottom:1rem;
+}
+.fp-head h2 .ital{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--cyan-2)}
+.fp-head p{color:rgba(255,255,255,0.75);font-size:1.05rem}
+
+.fp-map{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:18px;
+  padding:2rem;
+  position:relative;
+  overflow:hidden;
+}
+.fp-map svg{width:100%;height:auto;display:block;max-height:420px}
+.fp-map .state{fill:rgba(255,255,255,0.06);stroke:rgba(255,255,255,0.15);stroke-width:0.5;transition:all 0.2s}
+.fp-map .state.active{fill:var(--cyan);stroke:var(--cyan-2)}
+.fp-map .state.expanding{fill:rgba(0,180,200,0.25);stroke:rgba(0,180,200,0.5)}
+.fp-legend{
+  display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;
+  margin-top:1.5rem;font-size:0.85rem;color:rgba(255,255,255,0.7);
+}
+.fp-legend .key{display:inline-flex;align-items:center;gap:0.5rem}
+.fp-legend .swatch{width:14px;height:14px;border-radius:3px}
+.fp-legend .swatch.active{background:var(--cyan)}
+.fp-legend .swatch.expanding{background:rgba(0,180,200,0.4);border:1px solid rgba(0,180,200,0.6)}
+.fp-legend .swatch.future{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25)}
+
+/* ================= CLIENTS / PROOF ================= */
+.proof{background:#fff}
+.logo-strip{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;
+}
+@media(min-width:768px){.logo-strip{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1024px){.logo-strip{grid-template-columns:repeat(6,1fr)}}
+.logo-cell{
+  padding:1.75rem 1rem;display:flex;align-items:center;justify-content:center;
+  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  font-family:'Archivo',sans-serif;font-weight:800;font-size:0.85rem;
+  color:#94a3b8;letter-spacing:0.06em;text-align:center;line-height:1.2;
+}
+.logo-cell:nth-child(6n){border-right:none}
+.testimonials{
+  display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:3.5rem;
+}
+@media(min-width:900px){.testimonials{grid-template-columns:repeat(3,1fr)}}
+.tcard{
+  border:1px solid var(--line);border-radius:14px;
+  padding:1.85rem;background:var(--paper);
+  display:flex;flex-direction:column;gap:1rem;
+}
+.tcard .stars{color:#EAB308;letter-spacing:0.1em;font-size:1rem}
+.tcard q{
+  font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
+  font-size:1.15rem;line-height:1.45;color:var(--navy);quotes:none;letter-spacing:-0.005em;
+}
+.tcard q::before{content:'\201C'}
+.tcard q::after{content:'\201D'}
+.tcard .who{margin-top:auto;padding-top:0.75rem;border-top:1px solid var(--line);font-size:0.86rem}
+.tcard .who strong{display:block;color:var(--navy);font-weight:700}
+.tcard .who span{color:var(--slate);font-size:0.78rem;font-weight:500;letter-spacing:0.04em}
+
+/* ================= FRANCHISE BLOCK ================= */
+.franchise{
+  background:var(--sand);
+  position:relative;overflow:hidden;
+}
+.franchise-inner{
+  display:grid;grid-template-columns:1fr;gap:3rem;align-items:center;
+  padding:5rem 0;
+}
+@media(min-width:900px){.franchise-inner{grid-template-columns:1.1fr 0.9fr;gap:5rem}}
+.franchise-content .h-eyebrow{color:var(--navy);margin-bottom:1rem;display:inline-block;background:rgba(11,31,58,0.06);padding:0.35rem 0.75rem;border-radius:999px}
+.franchise-content h2{
+  font-family:'Archivo',sans-serif;font-weight:900;
+  font-size:clamp(2rem,4.5vw,3.4rem);letter-spacing:-0.025em;line-height:1;color:var(--navy);
+  margin-bottom:1.25rem;
+}
+.franchise-content h2 .ital{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
+.franchise-content p{color:var(--slate);font-size:1.05rem;line-height:1.65;margin-bottom:1.25rem}
+.franchise-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0;
+  padding:1.5rem 0;border-top:1px solid rgba(11,31,58,0.1);border-bottom:1px solid rgba(11,31,58,0.1);
+}
+.fs .num{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.8rem;color:var(--navy);letter-spacing:-0.02em;line-height:1}
+.fs .lbl{font-size:0.74rem;color:var(--slate);font-weight:500;letter-spacing:0.04em;margin-top:0.4rem}
+.franchise-card{
+  background:var(--navy);color:#fff;
+  border-radius:18px;padding:2.5rem;
+  position:relative;overflow:hidden;
+  box-shadow:0 30px 60px -25px rgba(11,31,58,0.4);
+}
+.franchise-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 100% 0%, rgba(0,180,200,0.3), transparent 55%);
+}
+.franchise-card-inner{position:relative;z-index:1}
+.franchise-card .lbl{
+  font-family:'Archivo',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--cyan-2);margin-bottom:1.25rem;
+}
+.franchise-card h3{
+  font-family:'Archivo',sans-serif;font-weight:900;font-size:2rem;line-height:1.05;letter-spacing:-0.02em;
+  color:#fff;margin-bottom:1rem;
+}
+.franchise-card h3 .ital{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
+.franchise-card p{color:rgba(255,255,255,0.78);font-size:0.98rem;line-height:1.6;margin-bottom:1.75rem}
+.fc-bullets{display:flex;flex-direction:column;gap:0.7rem;margin-bottom:2rem}
+.fc-bullets li{
+  list-style:none;display:flex;align-items:flex-start;gap:0.7rem;
+  font-size:0.92rem;color:rgba(255,255,255,0.85);line-height:1.45;
+}
+.fc-bullets li::before{
+  content:'';width:18px;height:18px;border-radius:50%;
+  background:var(--cyan);color:var(--navy);
+  display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;
+  background-image:linear-gradient(var(--cyan),var(--cyan));
+  margin-top:2px;
+}
+.fc-bullets li::before{content:'✓';font-size:0.7rem;font-weight:900}
+
+/* ================= FINAL CTA ================= */
+.final{
+  background:#fff;padding:6rem 0;
+}
+.final-inner{
+  background:var(--navy);color:#fff;border-radius:24px;
+  padding:4rem 2rem;text-align:center;position:relative;overflow:hidden;
+  background-image:
+    radial-gradient(ellipse at 0% 0%, rgba(0,180,200,0.25), transparent 50%),
+    radial-gradient(ellipse at 100% 100%, rgba(6,214,224,0.18), transparent 55%),
+    var(--navy);
+}
+.final-inner h2{
+  font-family:'Archivo',sans-serif;font-weight:900;
+  font-size:clamp(2rem,5vw,4rem);letter-spacing:-0.025em;line-height:1;color:#fff;margin-bottom:1.25rem;
+}
+.final-inner h2 .ital{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--cyan-2)}
+.final-inner p{color:rgba(255,255,255,0.78);font-size:1.1rem;max-width:32rem;margin:0 auto 2rem}
+.final-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:0.75rem}
+
+/* ================= FOOTER ================= */
+footer{background:var(--ink);color:#94a3b8;padding:4rem 0 2rem}
+footer .wrap{display:grid;grid-template-columns:1fr;gap:2.5rem}
+@media(min-width:900px){footer .wrap{grid-template-columns:1.5fr 1fr 1fr 1fr}}
+.foot-brand{display:flex;flex-direction:column;gap:1rem;max-width:24rem}
+.foot-brand p{font-size:0.9rem;color:#64748b;line-height:1.6}
+footer h5{font-family:'Archivo',sans-serif;font-weight:800;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:1rem}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:0.55rem}
+footer ul a{color:#94a3b8;font-size:0.9rem}
+footer ul a:hover{color:var(--cyan-2)}
+.foot-bottom{
+  border-top:1px solid #1e293b;margin-top:3rem;padding-top:1.5rem;
+  display:flex;flex-direction:column;gap:0.75rem;justify-content:space-between;font-size:0.78rem;color:#475569;
+}
+@media(min-width:768px){.foot-bottom{flex-direction:row;align-items:center}}
+
+/* mobile only utility */
+@media(max-width:1023px){
+  .util-left .util-pill{display:none}
+  .util-right span.util-only-desktop{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= UTILITY BAR ================= -->
+<div class="utility">
+  <div class="wrap">
+    <div class="util-left">
+      <a href="#commercial">Commercial RFP</a>
+      <a href="#franchise">Franchise opportunities</a>
+      <a href="#" class="util-pill">Now servicing FL · expanding nationally</a>
+    </div>
+    <div class="util-right">
+      <span class="util-only-desktop">24/7 commercial dispatch</span>
+      <a href="tel:18003947665"><strong>(800) 394-POOL</strong></a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="wrap">
+    <a href="/" class="brand" aria-label="Pool All-Stars">
+      <div class="brand-mark">P★</div>
+      <div class="brand-text">POOL ALL-STARS<small>America's pool company</small></div>
+    </a>
+    <nav class="primary">
+      <a href="#commercial" class="has-caret">Commercial</a>
+      <a href="#residential" class="has-caret">Residential</a>
+      <a href="#footprint">Service Map</a>
+      <a href="#franchise">Franchise</a>
+      <a href="#">Company</a>
+    </nav>
+    <div class="header-cta">
+      <div class="header-phone">(800) 394-POOL<small>Talk to a pro</small></div>
+      <a href="#cta" class="btn btn-dark btn-arrow">Get a quote</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-eyebrow"><span class="dot"></span> National pool care · Built for scale</div>
+        <h1>
+          One company.<br>
+          Every property.<br>
+          <span class="ital">Crystal clear,</span> <span class="accent">always.</span>
+        </h1>
+        <p class="hero-sub">
+          Pool All-Stars services thousands of residential pools and commercial properties across America &mdash; with the systems, certifications, and accountability owners and property managers expect from a national operator.
+        </p>
+
+        <div class="paths" role="navigation" aria-label="Choose your path">
+          <a class="path" href="#commercial">
+            <div class="path-label">
+              <div class="path-icon">CM</div>
+              <div class="path-text">
+                <strong>I manage a property</strong>
+                <span>HOAs · Hotels · Resorts · Condos · Fitness · Municipal</span>
+              </div>
+            </div>
+            <div class="path-arrow">→</div>
+          </a>
+          <a class="path" href="#residential">
+            <div class="path-label">
+              <div class="path-icon">HM</div>
+              <div class="path-text">
+                <strong>I own a home</strong>
+                <span>Weekly service · Repairs · Green-pool recovery</span>
+              </div>
+            </div>
+            <div class="path-arrow">→</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card-stack">
+          <div class="hero-photo" role="img" aria-label="Crystal clear pool"></div>
+          <div class="hero-floater fl-1">
+            <div class="num">5,000<em>+</em></div>
+            <div class="lbl">pools serviced<br>under one playbook</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS STRIP ================= -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stat">
+      <div class="num">5,000<em>+</em></div>
+      <div class="lbl">Residential & commercial pools serviced</div>
+    </div>
+    <div class="stat">
+      <div class="num">17<em>yrs</em></div>
+      <div class="lbl">Operating excellence since 2009</div>
+    </div>
+    <div class="stat">
+      <div class="num">100<em>%</em></div>
+      <div class="lbl">CPO-certified, licensed, insured</div>
+    </div>
+    <div class="stat">
+      <div class="num">A<em>+</em></div>
+      <div class="lbl">BBB rated · 500+ five-star reviews</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMMERCIAL ================= -->
+<section class="block commercial" id="commercial">
+  <div class="wrap">
+    <div class="head-row">
+      <div class="section-head" style="margin-bottom:0">
+        <span class="h-eyebrow">For property managers</span>
+        <h2>Commercial pool care, <span class="ital">without the surprises.</span></h2>
+        <p>From single-property HOAs to multi-site hotel groups, we operate on standardized SOPs, COI-on-file compliance, and dedicated account management &mdash; so the people running your buildings can stop worrying about the pool.</p>
+      </div>
+    </div>
+
+    <div class="commercial-types">
+      <div class="ct">
+        <div class="ct-icon">HO</div>
+        <h3>Hotels & Resorts</h3>
+        <div class="ct-meta">Guest-facing service, dawn cleanings, 24/7 dispatch, brand standards.</div>
+      </div>
+      <div class="ct">
+        <div class="ct-icon">HA</div>
+        <h3>HOAs & Condos</h3>
+        <div class="ct-meta">Board-friendly reporting, multi-pool routes, predictable monthly billing.</div>
+      </div>
+      <div class="ct">
+        <div class="ct-icon">FT</div>
+        <h3>Fitness & Aquatic</h3>
+        <div class="ct-meta">Health-code chemistry, member-load chlorine control, log compliance.</div>
+      </div>
+      <div class="ct">
+        <div class="ct-icon">MP</div>
+        <h3>Multi-Property</h3>
+        <div class="ct-meta">One contract, one PM contact, one consolidated invoice across portfolios.</div>
+      </div>
+      <div class="ct">
+        <div class="ct-icon">MN</div>
+        <h3>Municipal & Schools</h3>
+        <div class="ct-meta">Procurement-ready bids, public-pool standards, audit-ready records.</div>
+      </div>
+      <div class="ct">
+        <div class="ct-icon">VR</div>
+        <h3>Vacation Rentals</h3>
+        <div class="ct-meta">Turnover-day service, photo-confirmed visits, rental-platform ready.</div>
+      </div>
+      <div class="ct">
+        <div class="ct-icon">WP</div>
+        <h3>Water Parks</h3>
+        <div class="ct-meta">High-volume systems, slide & feature plumbing, peak-season staffing.</div>
+      </div>
+      <div class="ct">
+        <div class="ct-icon">CC</div>
+        <h3>Country Clubs</h3>
+        <div class="ct-meta">Member-experience priority, lap pool & resort pool dual specs.</div>
+      </div>
+    </div>
+
+    <div class="commercial-cta">
+      <div>
+        <h3>Replace your pool vendor in 30 days &mdash; or your first month is free.</h3>
+        <p>Send us your current scope, RFP, or last 60 days of service reports. We'll return a fixed-rate proposal, COI on file, and a transition plan that doesn't disrupt your guests, members, or residents.</p>
+        <div class="ctas">
+          <a href="#" class="btn btn-primary btn-arrow">Request commercial proposal</a>
+          <a href="tel:18003947665" class="btn btn-ghost">Call (800) 394-POOL</a>
+        </div>
+      </div>
+      <div class="cc-checks">
+        <div class="cc-check"><span>✓</span> Certificate of insurance on file in 24 hours</div>
+        <div class="cc-check"><span>✓</span> Dedicated account manager, single point of contact</div>
+        <div class="cc-check"><span>✓</span> Health-code-ready chemistry & log compliance</div>
+        <div class="cc-check"><span>✓</span> Net-30 billing, consolidated multi-property invoicing</div>
+        <div class="cc-check"><span>✓</span> Photo-confirmed visits & service-day reporting</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SYSTEM ================= -->
+<section class="block system" id="system">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="h-eyebrow">How we operate</span>
+      <h2>The All-Stars System.<br><span class="ital">A national operating playbook.</span></h2>
+      <p>Pool service the way it should run at scale &mdash; route-optimized, photo-documented, and accountable to a number, not a memory. The same playbook every territory follows.</p>
+    </div>
+
+    <div class="system-grid">
+      <div class="sys-card">
+        <div class="sys-num">01</div>
+        <h3>Route &amp; chemistry tech</h3>
+        <p>Every visit logged on a tablet: GPS-verified arrival, time on site, water readings, dosing, photos before and after. Owners and managers get the report the same day.</p>
+        <div class="sys-tag">Built-in accountability</div>
+      </div>
+      <div class="sys-card">
+        <div class="sys-num">02</div>
+        <h3>SOP-driven service</h3>
+        <p>A 12-point weekly checklist, plus property-type-specific protocols for resort pools, HOAs, lap pools, vinyl, and salt systems. No technician improvising.</p>
+        <div class="sys-tag">Consistent everywhere</div>
+      </div>
+      <div class="sys-card">
+        <div class="sys-num">03</div>
+        <h3>Compliance &amp; reporting</h3>
+        <p>COI on file, CPO-certified techs, OSHA-compliant chemical handling, and monthly portfolio reports your facilities team can hand straight to inspectors.</p>
+        <div class="sys-tag">Audit-ready by default</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OPS BANNER (FLEET) ================= -->
+<section class="ops-banner">
+  <div class="ops-banner-grid">
+    <div class="ops-text">
+      <span class="h-eyebrow" style="color:var(--cyan-2);margin-bottom:1rem;display:inline-block">The fleet</span>
+      <h2>Branded trucks. <span class="ital">Uniformed pros.</span> Stocked for anything.</h2>
+      <p>Every truck rolls out fully equipped &mdash; chemistry kits, vacuums, filter media, salt-cell tools, and replacement parts &mdash; so the technician at your property doesn't have to come back tomorrow to fix what they spotted today.</p>
+      <ul class="ops-list">
+        <li>Fully stocked vehicles</li>
+        <li>Uniformed technicians</li>
+        <li>Background checked</li>
+        <li>GPS-tracked routes</li>
+        <li>Same tech, every visit</li>
+        <li>Photo-confirmed service</li>
+      </ul>
+      <div>
+        <a href="#cta" class="btn btn-primary btn-arrow">Schedule a walk-through</a>
+      </div>
+    </div>
+    <div class="ops-img" role="img" aria-label="Pool All-Stars branded service truck"></div>
+  </div>
+</section>
+
+<!-- ================= RESIDENTIAL ================= -->
+<section class="block residential" id="residential">
+  <div class="wrap">
+    <div class="res-grid">
+      <div class="res-image">
+        <div class="res-quote">
+          "We switched to Pool All-Stars and never looked back. Same tech, every week, perfect water."
+          <div class="res-quote-attr">JENNIFER M. · TAMPA, FL</div>
+        </div>
+      </div>
+      <div class="res-content">
+        <span class="h-eyebrow" style="color:var(--cyan);margin-bottom:1rem;display:inline-block">For homeowners</span>
+        <h2>Same standard. <span class="ital">Your backyard.</span></h2>
+        <p>The same SOPs, certifications, and reporting we run for hotel groups &mdash; scaled down to the pool behind your house. Weekly service, all chemicals included, the same dedicated technician every visit.</p>
+        <ul class="res-checks">
+          <li>No long-term contracts</li>
+          <li>All chemicals included</li>
+          <li>Same tech every week</li>
+          <li>Transparent flat rate</li>
+          <li>Green-pool recovery</li>
+          <li>Equipment repair</li>
+        </ul>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem">
+          <a href="#cta" class="btn btn-dark btn-arrow">Get a free home quote</a>
+          <a href="#" class="btn btn-outline">See pricing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NATIONAL FOOTPRINT ================= -->
+<section class="footprint" id="footprint">
+  <div class="wrap fp-inner">
+    <div class="fp-head">
+      <span class="h-eyebrow">National footprint</span>
+      <h2>One brand, <span class="ital">every state we serve.</span></h2>
+      <p>Headquartered in Florida. Building toward national coverage through company-operated routes and franchise territory partners.</p>
+    </div>
+
+    <div class="fp-map">
+      <!-- Stylized US silhouette using a simple rounded-rect grid as placeholder -->
+      <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" aria-label="US service map">
+        <!-- simplified state-ish blocks; placeholder geometry -->
+        <g>
+          <!-- west -->
+          <rect class="state expanding" x="40" y="80"  width="80" height="60" rx="6"/>
+          <rect class="state"          x="40" y="150" width="80" height="60" rx="6"/>
+          <rect class="state"          x="40" y="220" width="80" height="60" rx="6"/>
+          <rect class="state expanding" x="130" y="80" width="70" height="80" rx="6"/>
+          <rect class="state"          x="130" y="170" width="70" height="80" rx="6"/>
+          <rect class="state expanding" x="210" y="120" width="80" height="100" rx="6"/>
+          <!-- midwest -->
+          <rect class="state"          x="300" y="80" width="70" height="60" rx="6"/>
+          <rect class="state"          x="300" y="150" width="70" height="60" rx="6"/>
+          <rect class="state"          x="300" y="220" width="70" height="60" rx="6"/>
+          <rect class="state expanding" x="380" y="80" width="70" height="60" rx="6"/>
+          <rect class="state"          x="380" y="150" width="70" height="60" rx="6"/>
+          <rect class="state expanding" x="380" y="220" width="70" height="60" rx="6"/>
+          <rect class="state"          x="460" y="80" width="70" height="60" rx="6"/>
+          <rect class="state expanding" x="460" y="150" width="70" height="60" rx="6"/>
+          <rect class="state"          x="460" y="220" width="70" height="60" rx="6"/>
+          <!-- south/east -->
+          <rect class="state"          x="540" y="80" width="70" height="60" rx="6"/>
+          <rect class="state expanding" x="540" y="150" width="70" height="60" rx="6"/>
+          <rect class="state expanding" x="540" y="220" width="70" height="60" rx="6"/>
+          <rect class="state"          x="620" y="80" width="70" height="60" rx="6"/>
+          <rect class="state expanding" x="620" y="150" width="70" height="60" rx="6"/>
+          <rect class="state active"   x="620" y="220" width="70" height="60" rx="6"/>
+          <!-- florida (active) -->
+          <rect class="state active"   x="600" y="290" width="100" height="60" rx="6"/>
+          <text x="650" y="328" fill="#0B1F3A" font-family="Archivo" font-weight="900" font-size="18" text-anchor="middle">FL</text>
+          <!-- texas -->
+          <rect class="state expanding" x="380" y="290" width="120" height="80" rx="6"/>
+          <text x="440" y="338" fill="rgba(255,255,255,0.7)" font-family="Archivo" font-weight="700" font-size="14" text-anchor="middle">TX</text>
+          <!-- california label -->
+          <text x="80" y="340" fill="rgba(255,255,255,0.7)" font-family="Archivo" font-weight="700" font-size="14" text-anchor="middle">CA</text>
+          <rect class="state expanding" x="40" y="290" width="80" height="60" rx="6"/>
+        </g>
+      </svg>
+      <div class="fp-legend">
+        <span class="key"><span class="swatch active"></span> Active service area</span>
+        <span class="key"><span class="swatch expanding"></span> Expanding · franchise territories available</span>
+        <span class="key"><span class="swatch future"></span> Roadmap</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROOF / CLIENTS / REVIEWS ================= -->
+<section class="block proof">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="h-eyebrow">Trusted by</span>
+      <h2>Properties, portfolios, <span class="ital">and the people who manage them.</span></h2>
+      <p>From single-pool HOAs to hotel groups with dozens of properties, our customers run on Pool All-Stars.</p>
+    </div>
+
+    <div class="logo-strip" aria-label="Client logos">
+      <div class="logo-cell">SUN COAST<br>HOSPITALITY</div>
+      <div class="logo-cell">BAYWATER<br>RESIDENCES</div>
+      <div class="logo-cell">PINNACLE<br>HOA GROUP</div>
+      <div class="logo-cell">CORAL CAY<br>RESORTS</div>
+      <div class="logo-cell">SUNSTATE<br>FITNESS CO.</div>
+      <div class="logo-cell">CITY OF<br>BRADENTON</div>
+    </div>
+
+    <div class="testimonials">
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <q>Pool All-Stars manages all eight of our portfolio properties on one contract. Their reporting is the cleanest I've seen in pool service.</q>
+        <div class="who">
+          <strong>Maria S.</strong>
+          <span>VP OPS · COASTAL HOSPITALITY GROUP</span>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <q>They sent the COI before the contract was even signed. That's how you know you're dealing with pros, not a guy with a truck.</q>
+        <div class="who">
+          <strong>Robert K.</strong>
+          <span>BOARD PRESIDENT · LAKEWOOD HOA</span>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <q>Three other companies couldn't keep our pool clear. Same tech every week, detailed reports &mdash; perfect water for over a year.</q>
+        <div class="who">
+          <strong>Jennifer M.</strong>
+          <span>HOMEOWNER · TAMPA, FL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FRANCHISE ================= -->
+<section class="franchise" id="franchise">
+  <div class="wrap franchise-inner">
+    <div class="franchise-content">
+      <span class="h-eyebrow">Own a territory</span>
+      <h2>Build a Pool All-Stars in <span class="ital">your market.</span></h2>
+      <p>We've spent 17 years engineering the operating system &mdash; routes, chemistry, reporting, sales, recurring revenue. Now we're licensing it. If you've got the work ethic and the territory, we've got the playbook.</p>
+      <p>Discovery calls open in select markets across the Southeast, Texas, and the Sun Belt. Limited territories per metro.</p>
+
+      <div class="franchise-stats">
+        <div class="fs"><div class="num">$0</div><div class="lbl">Territory royalty in year 1</div></div>
+        <div class="fs"><div class="num">90<em style="font-style:normal;color:var(--cyan)">d</em></div><div class="lbl">Pre-launch onboarding</div></div>
+        <div class="fs"><div class="num">1:1</div><div class="lbl">Operator coaching</div></div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:0.75rem">
+        <a href="#" class="btn btn-dark btn-arrow">Apply for a discovery call</a>
+        <a href="#" class="btn btn-outline">Download the FDD overview</a>
+      </div>
+    </div>
+
+    <div class="franchise-card">
+      <div class="franchise-card-inner">
+        <div class="lbl">What franchisees get</div>
+        <h3>The full <span class="ital">All-Stars</span> stack.</h3>
+        <p>Plug into a brand customers already trust &mdash; backed by tooling, training, and a national marketing engine.</p>
+        <ul class="fc-bullets">
+          <li>Protected territory mapping &amp; lead routing</li>
+          <li>Branded fleet &amp; uniform program</li>
+          <li>Tech stack: routing, chemistry, reporting, billing</li>
+          <li>National brand &amp; SEO domain authority</li>
+          <li>Commercial sales playbook &amp; RFP templates</li>
+          <li>CPO certification &amp; technician training</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final" id="cta">
+  <div class="wrap">
+    <div class="final-inner">
+      <span class="h-eyebrow" style="color:var(--cyan-2);display:inline-block;margin-bottom:1rem">Get started</span>
+      <h2>Ready for pools that <span class="ital">just work?</span></h2>
+      <p>Tell us about your property &mdash; or your home &mdash; and we'll send a fixed-rate proposal within one business day.</p>
+      <div class="final-ctas">
+        <a href="#" class="btn btn-primary btn-arrow">Get a free quote</a>
+        <a href="tel:18003947665" class="btn btn-ghost">Call (800) 394-POOL</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">
+      <a href="/" class="brand">
+        <div class="brand-mark" style="background:linear-gradient(140deg,var(--navy),var(--cyan))">P★</div>
+        <div class="brand-text" style="color:#fff">POOL ALL-STARS<small style="color:#64748b">America's pool company</small></div>
+      </a>
+      <p>National professional pool care for residential homeowners and commercial property managers. Licensed, insured, CPO-certified.</p>
+      <p><strong style="color:#cbd5e1">(800) 394-POOL</strong> · 24/7 commercial dispatch</p>
+    </div>
+    <div>
+      <h5>Commercial</h5>
+      <ul>
+        <li><a href="#">Hotels &amp; Resorts</a></li>
+        <li><a href="#">HOAs &amp; Condos</a></li>
+        <li><a href="#">Fitness &amp; Aquatic</a></li>
+        <li><a href="#">Multi-Property</a></li>
+        <li><a href="#">Request RFP</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Residential</h5>
+      <ul>
+        <li><a href="#">Weekly Service</a></li>
+        <li><a href="#">Green-Pool Recovery</a></li>
+        <li><a href="#">Equipment Repair</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Get a Quote</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Service Map</a></li>
+        <li><a href="#">Franchise</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom" style="display:flex">
+    <div>© 2026 Pool All-Stars. All rights reserved.</div>
+    <div>Licensed · Insured · CPO Certified · BBB A+</div>
+  </div>
+</footer>
+
+</body>
+</html>
