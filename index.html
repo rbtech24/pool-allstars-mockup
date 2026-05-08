@@ -11,6 +11,7 @@
 <style>
 :root{
   --red:#D7263D;
+  --red-dark:#B91D31;
   --red-soft:#FCE9EC;
   --blue:#0A2463;
   --blue-2:#061A4A;
@@ -23,6 +24,7 @@
   --gray-2:#86868B;
   --line:#E5E5EA;
   --line-2:#D2D2D7;
+  --green:#22C55E;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -36,21 +38,16 @@ body{
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input{font:inherit;color:inherit}
 
 .eyebrow{
-  font-weight:600;
-  font-size:0.78rem;
-  letter-spacing:0.02em;
-  color:var(--red);
+  font-weight:600;font-size:0.78rem;letter-spacing:0.02em;color:var(--red);
 }
 .eyebrow.muted{color:var(--gray)}
 
 .wrap{max-width:1240px;margin:0 auto;padding:0 1.5rem}
 .wrap-narrow{max-width:1040px;margin:0 auto;padding:0 1.5rem}
-
-@media(min-width:1024px){
-  .wrap,.wrap-narrow{padding:0 2.5rem}
-}
+@media(min-width:1024px){.wrap,.wrap-narrow{padding:0 2.5rem}}
 
 /* ===== UTILITY BAR ===== */
 .utility{background:var(--paper);color:var(--gray);font-size:0.78rem;border-bottom:1px solid var(--line)}
@@ -81,9 +78,7 @@ nav.primary a:hover{color:var(--red)}
 .header-phone{font-weight:600;color:var(--ink);font-size:0.92rem}
 .header-phone small{display:block;font-weight:500;font-size:0.72rem;color:var(--gray);margin-top:0.05rem}
 
-@media(min-width:1024px){
-  nav.primary,.header-cta{display:flex}
-}
+@media(min-width:1024px){nav.primary,.header-cta{display:flex}}
 
 /* ===== BUTTONS ===== */
 .btn{
@@ -96,7 +91,7 @@ nav.primary a:hover{color:var(--red)}
   white-space:nowrap;
 }
 .btn-red{background:var(--red);color:#fff}
-.btn-red:hover{background:#B91D31;transform:translateY(-1px);box-shadow:0 8px 20px -6px rgba(215,38,61,0.45)}
+.btn-red:hover{background:var(--red-dark);transform:translateY(-1px);box-shadow:0 8px 20px -6px rgba(215,38,61,0.45)}
 .btn-blue{background:var(--blue);color:#fff}
 .btn-blue:hover{background:var(--blue-2);transform:translateY(-1px)}
 .btn-ink{background:var(--ink);color:#fff}
@@ -107,97 +102,232 @@ nav.primary a:hover{color:var(--red)}
 .btn-light:hover{background:transparent;color:#fff;border-color:#fff}
 .btn-outline-light{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.4)}
 .btn-outline-light:hover{background:#fff;color:var(--blue);border-color:#fff}
+.btn-outline-blue{background:transparent;color:var(--blue);border:1px solid var(--blue)}
+.btn-outline-blue:hover{background:var(--blue);color:#fff}
 
-/* ===== HERO (cinematic split) ===== */
-.hero{
-  background:var(--white);
-  position:relative;overflow:hidden;
-}
-.hero-grid{
-  display:grid;grid-template-columns:1fr;
-  align-items:stretch;
-}
+/* ===== HERO ===== */
+.hero{background:var(--white);position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr;align-items:stretch}
 @media(min-width:1024px){
-  .hero-grid{grid-template-columns:1fr 1.05fr;min-height:min(86vh,820px)}
+  .hero-grid{grid-template-columns:1.1fr 1fr;min-height:min(92vh,860px)}
 }
 .hero-text{
   display:flex;flex-direction:column;justify-content:center;
-  padding:4.5rem 1.5rem 3rem;
-  max-width:640px;margin:0 auto;
-  width:100%;
+  padding:3.5rem 1.5rem 3rem;max-width:680px;margin:0 auto;width:100%;
 }
 @media(min-width:1024px){
-  .hero-text{padding:5rem 4rem 5rem 2.5rem;margin:0 0 0 auto;max-width:none}
+  .hero-text{padding:4rem 4rem 4rem 2.5rem;margin:0 0 0 auto;max-width:none}
 }
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:0.5rem;
   background:rgba(215,38,61,0.08);color:var(--red);
   padding:0.4rem 0.95rem;border-radius:9999px;
   font-weight:600;font-size:0.78rem;
-  margin-bottom:1.75rem;width:fit-content;
+  margin-bottom:1.5rem;width:fit-content;
 }
 .hero-eyebrow .star{font-size:0.85rem}
 .hero h1{
   font-family:'Inter Tight','Inter',sans-serif;font-weight:800;
-  font-size:clamp(2.75rem,7.2vw,5.75rem);line-height:0.97;letter-spacing:-0.045em;
-  color:var(--ink);margin-bottom:1.5rem;
+  font-size:clamp(2.5rem,6.5vw,5rem);line-height:0.97;letter-spacing:-0.045em;
+  color:var(--ink);margin-bottom:1.25rem;
 }
 .hero h1 .red{color:var(--red)}
 .hero h1 .blue{color:var(--blue)}
 .hero-sub{
-  font-size:clamp(1.05rem,1.55vw,1.25rem);color:var(--gray);
-  margin-bottom:2.5rem;line-height:1.45;font-weight:400;
-  max-width:30rem;
+  font-size:clamp(1.05rem,1.5vw,1.18rem);color:var(--gray);
+  margin-bottom:1.85rem;line-height:1.5;font-weight:400;max-width:30rem;
 }
-.hero-ctas{display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:2.25rem}
-.hero-trust{
-  display:flex;flex-wrap:wrap;gap:1.25rem 1.75rem;align-items:center;
-  font-size:0.85rem;color:var(--gray);font-weight:500;
-}
-.hero-trust .item{display:flex;align-items:center;gap:0.4rem}
-.hero-trust .item strong{color:var(--ink);font-weight:600}
-.hero-trust .stars{color:var(--red);letter-spacing:0.04em;font-size:0.92rem}
 
+/* dual-path cards */
+.hero-paths{display:flex;flex-direction:column;gap:0.85rem;max-width:34rem}
+.path-card{
+  display:flex;flex-direction:column;
+  background:#fff;border:1px solid var(--line);
+  border-radius:18px;padding:1.4rem 1.5rem;
+  transition:all 0.2s ease;
+  text-decoration:none;color:inherit;
+  position:relative;
+}
+.path-card:hover{
+  border-color:var(--ink);
+  box-shadow:0 12px 30px -12px rgba(10,36,99,0.18);
+  transform:translateY(-2px);
+}
+.path-tag{
+  display:inline-flex;align-items:center;gap:0.35rem;
+  font-size:0.7rem;font-weight:700;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--red);margin-bottom:0.7rem;
+}
+.path-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red)}
+.path-card.commercial .path-tag{color:var(--blue)}
+.path-card.commercial .path-tag::before{background:var(--blue)}
+.path-card h3{
+  font-family:'Inter Tight',sans-serif;font-weight:700;
+  font-size:1.18rem;letter-spacing:-0.022em;line-height:1.2;
+  color:var(--ink);margin-bottom:0.55rem;
+}
+.path-card p{font-size:0.86rem;color:var(--gray);line-height:1.45;margin-bottom:0}
+/* zip group */
+.zip-input{
+  display:flex;align-items:stretch;gap:0;
+  background:var(--paper);border-radius:9999px;
+  padding:5px;margin:0.75rem 0 0.6rem;
+  border:1px solid var(--line);
+  transition:all 0.18s;
+}
+.zip-input:focus-within{border-color:var(--red);background:#fff;box-shadow:0 0 0 4px rgba(215,38,61,0.1)}
+.zip-input input{
+  flex:1;background:transparent;border:none;outline:none;
+  padding:0.55rem 0.85rem;font-weight:500;font-size:0.95rem;color:var(--ink);
+  min-width:0;
+}
+.zip-input input::placeholder{color:var(--gray-2)}
+.zip-input button{
+  background:var(--red);color:#fff;
+  border-radius:9999px;
+  padding:0.5rem 1.1rem;font-weight:600;font-size:0.88rem;
+  display:inline-flex;align-items:center;gap:0.3rem;
+  transition:background 0.18s;
+}
+.zip-input button:hover{background:var(--red-dark)}
+.path-card .commercial-cta-row{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  margin-top:0.85rem;padding-top:0.85rem;border-top:1px solid var(--line);
+}
+.path-card .commercial-cta-row .btn-go{
+  display:inline-flex;align-items:center;gap:0.35rem;
+  font-weight:600;font-size:0.88rem;color:var(--blue);
+}
+.path-card .commercial-cta-row .btn-go::after{content:'›';font-size:1.2rem;line-height:1}
+
+/* hero image */
 .hero-image{
   position:relative;
   background-image:url('assets/images/pool-allstars-hero.png');
   background-size:cover;background-position:center;
-  min-height:420px;
+  min-height:380px;
 }
-@media(min-width:1024px){
-  .hero-image{min-height:auto}
-}
+@media(min-width:1024px){.hero-image{min-height:auto}}
 .hero-image::after{
   content:'';position:absolute;inset:0;
   background:linear-gradient(110deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 30%);
   pointer-events:none;
 }
 @media(min-width:1024px){
-  .hero-image::after{
-    background:linear-gradient(95deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0) 18%);
-  }
+  .hero-image::after{background:linear-gradient(95deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0) 18%)}
 }
-.hero-image .float-card{
-  position:absolute;
-  bottom:1.5rem;left:1.5rem;right:1.5rem;
+.float-card{
+  position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;
   background:rgba(255,255,255,0.96);
   backdrop-filter:saturate(180%) blur(20px);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
-  border-radius:18px;
-  padding:1.1rem 1.35rem;
+  border-radius:18px;padding:1.1rem 1.35rem;
   display:flex;align-items:center;gap:0.85rem;
   box-shadow:0 12px 32px -12px rgba(10,36,99,0.25);
   z-index:2;
 }
-@media(min-width:1024px){
-  .hero-image .float-card{bottom:2rem;left:auto;right:2rem;max-width:340px}
-}
-.hero-image .float-card .dot{
-  width:10px;height:10px;border-radius:50%;background:#22C55E;flex-shrink:0;
+@media(min-width:1024px){.float-card{bottom:2rem;left:auto;right:2rem;max-width:340px}}
+.float-card .dot{
+  width:10px;height:10px;border-radius:50%;background:var(--green);flex-shrink:0;
   box-shadow:0 0 0 4px rgba(34,197,94,0.18);
 }
-.hero-image .float-card .text{font-size:0.88rem;color:var(--ink);line-height:1.35;font-weight:500}
-.hero-image .float-card .text strong{display:block;font-weight:700;font-size:0.95rem;letter-spacing:-0.01em}
+.float-card .text{font-size:0.86rem;color:var(--ink);line-height:1.35;font-weight:500}
+.float-card .text strong{display:block;font-weight:700;font-size:0.95rem;letter-spacing:-0.01em;margin-bottom:0.1rem}
+
+/* ===== TRUST BAR ===== */
+.trustbar{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:1.85rem 0}
+.trustbar .wrap{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem 1rem;align-items:center;
+}
+@media(min-width:640px){.trustbar .wrap{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1024px){.trustbar .wrap{grid-template-columns:repeat(6,1fr)}}
+.tbadge{
+  display:flex;align-items:center;gap:0.7rem;justify-content:center;
+}
+.tbadge-icon{
+  width:42px;height:42px;border-radius:10px;
+  background:#fff;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-family:'Inter Tight',sans-serif;font-weight:800;font-size:0.78rem;
+  color:var(--red);letter-spacing:-0.01em;
+  box-shadow:0 2px 4px rgba(0,0,0,0.04);
+}
+.tbadge-icon.blue{color:var(--blue)}
+.tbadge-icon .star{color:#EAB308;font-size:1.05rem}
+.tbadge-text{display:flex;flex-direction:column;gap:0.05rem;line-height:1.15;min-width:0}
+.tbadge-text strong{font-weight:700;font-size:0.86rem;color:var(--ink);letter-spacing:-0.01em}
+.tbadge-text span{font-size:0.74rem;color:var(--gray);font-weight:500}
+
+/* ===== PRICING SNAPSHOT ===== */
+.pricing{padding:6rem 0;background:var(--white)}
+.pricing .head{text-align:center;max-width:46rem;margin:0 auto 3rem}
+.pricing .head .eyebrow{display:inline-block;margin-bottom:0.85rem}
+.pricing .head h2{
+  font-family:'Inter Tight',sans-serif;font-weight:800;
+  font-size:clamp(2rem,4.5vw,3.4rem);letter-spacing:-0.035em;line-height:1.05;
+  color:var(--ink);margin-bottom:0.85rem;
+}
+.pricing .head h2 .red{color:var(--red)}
+.pricing .head p{color:var(--gray);font-size:1.05rem}
+
+.pricing-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;max-width:1080px;margin:0 auto}
+@media(min-width:768px){.pricing-grid{grid-template-columns:1fr 1fr}}
+.pcard{
+  background:#fff;border:1px solid var(--line);
+  border-radius:24px;padding:2.5rem 2rem;
+  position:relative;overflow:hidden;
+  transition:all 0.2s ease;
+}
+.pcard:hover{transform:translateY(-3px);box-shadow:0 20px 50px -20px rgba(10,36,99,0.18);border-color:var(--line-2)}
+.pcard.featured{border-color:var(--red);box-shadow:0 12px 32px -12px rgba(215,38,61,0.18)}
+.pcard.featured::before{
+  content:'Most popular';position:absolute;top:1.25rem;right:1.25rem;
+  background:var(--red);color:#fff;
+  font-size:0.7rem;font-weight:700;letter-spacing:0.04em;
+  padding:0.35rem 0.7rem;border-radius:9999px;
+}
+.pcard .ptag{
+  font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--red);margin-bottom:0.75rem;
+}
+.pcard.commercial .ptag{color:var(--blue)}
+.pcard h3{
+  font-family:'Inter Tight',sans-serif;font-weight:800;
+  font-size:1.6rem;letter-spacing:-0.025em;color:var(--ink);margin-bottom:0.4rem;
+}
+.pcard .ptagline{font-size:0.95rem;color:var(--gray);margin-bottom:1.5rem;line-height:1.4}
+.price{
+  display:flex;align-items:baseline;gap:0.4rem;margin-bottom:1.5rem;
+  padding-bottom:1.5rem;border-bottom:1px solid var(--line);
+}
+.price .from{font-size:0.85rem;color:var(--gray);font-weight:500}
+.price .amount{
+  font-family:'Inter Tight',sans-serif;font-weight:800;
+  font-size:3rem;color:var(--ink);letter-spacing:-0.03em;line-height:1;
+}
+.price .currency{
+  font-family:'Inter Tight',sans-serif;font-weight:700;
+  font-size:1.5rem;color:var(--ink);letter-spacing:-0.02em;align-self:flex-start;margin-top:0.4rem;
+}
+.price .period{font-size:0.95rem;color:var(--gray);font-weight:500;margin-left:0.1rem}
+.price.custom .amount{font-size:1.85rem;letter-spacing:-0.025em}
+.pcard ul{list-style:none;display:flex;flex-direction:column;gap:0.7rem;margin-bottom:1.85rem}
+.pcard ul li{
+  display:flex;align-items:flex-start;gap:0.65rem;
+  font-size:0.95rem;color:var(--ink);line-height:1.45;
+}
+.pcard ul li::before{
+  content:'';display:inline-block;flex-shrink:0;
+  width:18px;height:18px;border-radius:50%;
+  background:rgba(215,38,61,0.1);
+  background-image:radial-gradient(circle,var(--red) 35%,transparent 36%);
+  margin-top:1px;
+}
+.pcard.commercial ul li::before{
+  background:rgba(10,36,99,0.1);
+  background-image:radial-gradient(circle,var(--blue) 35%,transparent 36%);
+}
+.pcard .pcard-cta{display:flex;flex-wrap:wrap;gap:0.6rem}
 
 /* ===== SECTION FRAME ===== */
 section.block{padding:7rem 0}
@@ -213,67 +343,42 @@ section.block{padding:7rem 0}
 .section-head h2 .red{color:var(--red)}
 .section-head h2 .blue{color:var(--blue)}
 .section-head h2 .muted{color:var(--gray)}
-.section-head p{
-  font-size:1.15rem;color:var(--gray);max-width:38rem;line-height:1.5;
-}
+.section-head p{font-size:1.15rem;color:var(--gray);max-width:38rem;line-height:1.5}
 .section-head.center p{margin-left:auto;margin-right:auto}
 
 /* ===== COMMERCIAL ===== */
 .commercial{background:var(--paper)}
-.commercial-types{
-  display:grid;grid-template-columns:1fr;gap:1rem;
-}
+.commercial-types{display:grid;grid-template-columns:1fr;gap:1rem}
 @media(min-width:640px){.commercial-types{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.commercial-types{grid-template-columns:repeat(4,1fr)}}
 .ct{
-  background:#fff;border-radius:22px;
-  padding:1.85rem;
+  background:#fff;border-radius:22px;padding:1.85rem;
   display:flex;flex-direction:column;gap:0.75rem;
   transition:all 0.25s cubic-bezier(0.4,0,0.2,1);
-  cursor:pointer;
-  border:1px solid transparent;
-  box-shadow:0 1px 2px rgba(0,0,0,0.04);
-  min-height:200px;
+  cursor:pointer;border:1px solid transparent;
+  box-shadow:0 1px 2px rgba(0,0,0,0.04);min-height:200px;
 }
-.ct:hover{
-  transform:translateY(-3px);
-  box-shadow:0 16px 40px -16px rgba(10,36,99,0.18);
-  border-color:var(--line);
-}
+.ct:hover{transform:translateY(-3px);box-shadow:0 16px 40px -16px rgba(10,36,99,0.18);border-color:var(--line)}
 .ct-icon{
   width:44px;height:44px;border-radius:12px;
   background:var(--blue-soft);color:var(--blue);
   display:flex;align-items:center;justify-content:center;
-  font-weight:700;font-size:0.92rem;letter-spacing:-0.01em;
-  margin-bottom:0.4rem;
+  font-weight:700;font-size:0.92rem;letter-spacing:-0.01em;margin-bottom:0.4rem;
 }
-.ct h3{
-  font-family:'Inter Tight',sans-serif;font-weight:700;
-  font-size:1.1rem;letter-spacing:-0.018em;color:var(--ink);
-}
+.ct h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:-0.018em;color:var(--ink)}
 .ct-meta{font-size:0.92rem;color:var(--gray);line-height:1.5}
-.ct-link{
-  margin-top:auto;padding-top:0.65rem;
-  font-weight:600;font-size:0.88rem;color:var(--red);
-  display:inline-flex;align-items:center;gap:0.2rem;
-}
+.ct-link{margin-top:auto;padding-top:0.65rem;font-weight:600;font-size:0.88rem;color:var(--red);display:inline-flex;align-items:center;gap:0.2rem}
 .ct-link::after{content:'›';font-size:1.2rem;line-height:1;margin-left:0.1rem}
 
-/* ===== COMMERCIAL CTA ===== */
 .commercial-cta{
-  background:var(--ink);color:#fff;
-  border-radius:28px;
-  padding:3rem 2rem;
-  margin-top:3rem;
+  background:var(--ink);color:#fff;border-radius:28px;
+  padding:3rem 2rem;margin-top:3rem;
   display:grid;grid-template-columns:1fr;gap:2rem;align-items:center;
   position:relative;overflow:hidden;
 }
-@media(min-width:900px){
-  .commercial-cta{grid-template-columns:1.4fr 1fr;padding:3.5rem;gap:3rem}
-}
+@media(min-width:900px){.commercial-cta{grid-template-columns:1.4fr 1fr;padding:3.5rem;gap:3rem}}
 .commercial-cta::after{
-  content:'';position:absolute;top:-30%;right:-15%;
-  width:55%;height:160%;
+  content:'';position:absolute;top:-30%;right:-15%;width:55%;height:160%;
   background:radial-gradient(circle, rgba(215,38,61,0.18), transparent 70%);
   pointer-events:none;
 }
@@ -294,46 +399,63 @@ section.block{padding:7rem 0}
   border-radius:18px;padding:1.5rem;
   position:relative;z-index:1;
 }
-.cc-check{
-  display:flex;align-items:flex-start;gap:0.7rem;
-  font-size:0.93rem;color:rgba(255,255,255,0.92);line-height:1.45;font-weight:500;
-}
+.cc-check{display:flex;align-items:flex-start;gap:0.7rem;font-size:0.93rem;color:rgba(255,255,255,0.92);line-height:1.45;font-weight:500}
 .cc-check::before{
-  content:'';display:inline-block;
-  width:18px;height:18px;border-radius:50%;
+  content:'';display:inline-block;width:18px;height:18px;border-radius:50%;
   background:rgba(215,38,61,0.18);
   background-image:radial-gradient(circle,#FF6B7A 35%,transparent 36%);
   flex-shrink:0;margin-top:1px;
 }
 
-/* ===== SYSTEM ===== */
-.system{background:#fff}
-.system-grid{
-  display:grid;grid-template-columns:1fr;gap:1.25rem;
+/* ===== HOW IT WORKS ===== */
+.howitworks{background:#fff}
+.steps-grid{display:grid;grid-template-columns:1fr;gap:1rem;position:relative}
+@media(min-width:768px){.steps-grid{grid-template-columns:repeat(2,1fr);gap:1.25rem}}
+@media(min-width:1024px){.steps-grid{grid-template-columns:repeat(4,1fr)}}
+.step{
+  position:relative;padding:2rem 1.75rem;
+  background:var(--paper);border-radius:22px;
+  display:flex;flex-direction:column;gap:0.85rem;
+  transition:all 0.2s ease;
 }
+.step:hover{transform:translateY(-3px);box-shadow:0 18px 40px -18px rgba(10,36,99,0.18)}
+.step-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:42px;height:42px;border-radius:12px;
+  background:var(--ink);color:#fff;
+  font-family:'Inter Tight',sans-serif;font-weight:800;font-size:1rem;letter-spacing:-0.01em;
+}
+.step-icon{
+  position:absolute;top:1.5rem;right:1.75rem;
+  width:36px;height:36px;display:flex;align-items:center;justify-content:center;
+  color:var(--red);opacity:0.8;
+}
+.step-icon svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.8}
+.step h3{
+  font-family:'Inter Tight',sans-serif;font-weight:700;
+  font-size:1.18rem;letter-spacing:-0.02em;color:var(--ink);
+}
+.step p{font-size:0.95rem;color:var(--gray);line-height:1.55}
+.step-tag{
+  margin-top:auto;padding-top:0.85rem;
+  font-weight:500;font-size:0.82rem;color:var(--blue);
+}
+
+/* ===== SYSTEM ===== */
+.system{background:var(--paper-2)}
+.system-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
 @media(min-width:900px){.system-grid{grid-template-columns:repeat(3,1fr)}}
 .sys-card{
-  background:var(--paper);border-radius:22px;
-  padding:2.25rem 2rem;
+  background:#fff;border:1px solid var(--line);
+  border-radius:22px;padding:2.25rem 2rem;
   display:flex;flex-direction:column;gap:1rem;
-  transition:all 0.25s cubic-bezier(0.4,0,0.2,1);
-  position:relative;
+  transition:all 0.25s cubic-bezier(0.4,0,0.2,1);position:relative;
 }
-.sys-card:hover{transform:translateY(-3px);box-shadow:0 20px 50px -20px rgba(10,36,99,0.18)}
-.sys-num{
-  font-family:'Inter Tight',sans-serif;font-weight:800;
-  font-size:0.95rem;letter-spacing:0.01em;
-  color:var(--red);
-}
-.sys-card h3{
-  font-family:'Inter Tight',sans-serif;font-weight:700;
-  font-size:1.45rem;letter-spacing:-0.025em;line-height:1.15;color:var(--ink);
-}
+.sys-card:hover{transform:translateY(-3px);box-shadow:0 20px 50px -20px rgba(10,36,99,0.18);border-color:var(--line-2)}
+.sys-num{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:0.95rem;letter-spacing:0.01em;color:var(--red)}
+.sys-card h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:1.45rem;letter-spacing:-0.025em;line-height:1.15;color:var(--ink)}
 .sys-card p{font-size:1rem;color:var(--gray);line-height:1.55}
-.sys-tag{
-  margin-top:auto;padding-top:0.85rem;
-  font-weight:500;font-size:0.85rem;color:var(--blue);
-}
+.sys-tag{margin-top:auto;padding-top:0.85rem;font-weight:500;font-size:0.85rem;color:var(--blue)}
 
 /* ===== FLEET ===== */
 .fleet{background:#000;color:#fff;padding:7rem 0;position:relative;overflow:hidden}
@@ -348,10 +470,7 @@ section.block{padding:7rem 0}
 }
 .fleet-text h2 .gray{color:#86868B}
 .fleet-text p{color:rgba(255,255,255,0.72);font-size:1.1rem;line-height:1.5;margin-bottom:1.85rem}
-.fleet-list{
-  display:grid;grid-template-columns:1fr 1fr;gap:0.7rem 2rem;margin-bottom:2.25rem;
-  font-size:0.95rem;color:rgba(255,255,255,0.85);
-}
+.fleet-list{display:grid;grid-template-columns:1fr 1fr;gap:0.7rem 2rem;margin-bottom:2.25rem;font-size:0.95rem;color:rgba(255,255,255,0.85)}
 .fleet-list li{list-style:none;display:flex;align-items:center;gap:0.6rem;font-weight:500}
 .fleet-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0}
 .fleet-img{
@@ -363,7 +482,7 @@ section.block{padding:7rem 0}
 }
 
 /* ===== RESIDENTIAL ===== */
-.residential{background:var(--paper-2)}
+.residential{background:#fff}
 .res-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
 @media(min-width:900px){.res-grid{grid-template-columns:1fr 1fr;gap:5rem}}
 .res-image{
@@ -377,18 +496,12 @@ section.block{padding:7rem 0}
   position:absolute;left:1.25rem;right:1.25rem;bottom:1.25rem;
   background:rgba(255,255,255,0.96);
   backdrop-filter:saturate(180%) blur(20px);
-  border-radius:18px;
-  padding:1.4rem 1.5rem;
+  border-radius:18px;padding:1.4rem 1.5rem;
   border:1px solid rgba(255,255,255,0.5);
 }
 .res-image .quote-block .stars{color:var(--red);font-size:1rem;letter-spacing:0.05em;margin-bottom:0.5rem}
-.res-image .quote-block .text{
-  font-weight:600;font-size:1rem;line-height:1.45;color:var(--ink);letter-spacing:-0.01em;
-}
-.res-image .quote-block .who{
-  font-weight:500;font-size:0.85rem;color:var(--gray);margin-top:0.55rem;
-}
-
+.res-image .quote-block .text{font-weight:600;font-size:1rem;line-height:1.45;color:var(--ink);letter-spacing:-0.01em}
+.res-image .quote-block .who{font-weight:500;font-size:0.85rem;color:var(--gray);margin-top:0.55rem}
 .res-content h2{
   font-family:'Inter Tight',sans-serif;font-weight:800;
   font-size:clamp(2.2rem,4.5vw,3.6rem);letter-spacing:-0.035em;line-height:1.02;
@@ -396,13 +509,8 @@ section.block{padding:7rem 0}
 }
 .res-content h2 .red{color:var(--red)}
 .res-content p{font-size:1.1rem;color:var(--gray);line-height:1.55;margin-bottom:1.25rem}
-.res-checks{
-  display:grid;grid-template-columns:1fr 1fr;gap:0.6rem 1.5rem;margin:1.75rem 0 2rem;
-}
-.res-checks li{
-  list-style:none;display:flex;align-items:center;gap:0.55rem;
-  font-size:0.95rem;color:var(--ink);font-weight:500;
-}
+.res-checks{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem 1.5rem;margin:1.75rem 0 2rem}
+.res-checks li{list-style:none;display:flex;align-items:center;gap:0.55rem;font-size:0.95rem;color:var(--ink);font-weight:500}
 .res-checks li::before{
   content:'';display:inline-block;width:18px;height:18px;border-radius:50%;
   background:rgba(215,38,61,0.1);
@@ -411,7 +519,7 @@ section.block{padding:7rem 0}
 }
 
 /* ===== SERVICE AREA / MAP ===== */
-.map-section{background:#fff;padding:7rem 0}
+.map-section{background:var(--paper);padding:7rem 0}
 @media(min-width:768px){.map-section{padding:8rem 0}}
 .map-section .head{margin-bottom:3rem;max-width:48rem}
 .map-section .head.center{margin-left:auto;margin-right:auto;text-align:center}
@@ -424,44 +532,29 @@ section.block{padding:7rem 0}
 .map-section .head h2 .red{color:var(--red)}
 .map-section .head p{color:var(--gray);font-size:1.1rem;max-width:38rem}
 .map-section .head.center p{margin-left:auto;margin-right:auto}
-
 .map-frame{
-  position:relative;
-  border-radius:24px;overflow:hidden;
+  position:relative;border-radius:24px;overflow:hidden;
   border:1px solid var(--line);
   box-shadow:0 24px 60px -20px rgba(10,36,99,0.18);
+  background:#fff;
 }
 #service-map{height:540px;width:100%;background:var(--paper)}
-.map-cities{
-  display:flex;flex-wrap:wrap;gap:0.6rem;justify-content:center;
-  margin-top:2rem;
-}
+.map-cities{display:flex;flex-wrap:wrap;gap:0.6rem;justify-content:center;margin-top:2rem}
 .map-city{
   display:inline-flex;align-items:center;gap:0.45rem;
-  padding:0.55rem 1rem;
-  background:var(--paper);border-radius:9999px;
-  font-weight:600;font-size:0.88rem;color:var(--ink);
-  border:1px solid var(--line);
+  padding:0.55rem 1rem;background:#fff;border-radius:9999px;
+  font-weight:600;font-size:0.88rem;color:var(--ink);border:1px solid var(--line);
 }
-.map-city::before{
-  content:'';width:8px;height:8px;border-radius:50%;background:var(--red);
-}
-
-/* leaflet marker styling */
+.map-city::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--red)}
 .service-marker-icon{background:transparent;border:none}
 .service-marker-dot{
-  width:18px;height:18px;
-  background:var(--red);
-  border:3px solid #fff;
-  border-radius:50%;
-  box-shadow:0 4px 10px -2px rgba(0,0,0,0.3);
-  position:relative;
+  width:18px;height:18px;background:var(--red);
+  border:3px solid #fff;border-radius:50%;
+  box-shadow:0 4px 10px -2px rgba(0,0,0,0.3);position:relative;
 }
 .service-marker-dot::after{
   content:'';position:absolute;top:-3px;left:-3px;right:-3px;bottom:-3px;
-  border-radius:50%;
-  border:2px solid var(--red);
-  opacity:0.4;
+  border-radius:50%;border:2px solid var(--red);opacity:0.4;
   animation:pulse-ring 2.4s infinite;
 }
 @keyframes pulse-ring{
@@ -470,21 +563,16 @@ section.block{padding:7rem 0}
   100%{transform:scale(1.8);opacity:0}
 }
 .city-tooltip{
-  background:var(--ink) !important;
-  color:#fff !important;
-  border:none !important;
-  border-radius:6px !important;
-  padding:0.3rem 0.6rem !important;
-  font-family:'Inter',sans-serif !important;
-  font-weight:600 !important;
-  font-size:0.78rem !important;
+  background:var(--ink) !important;color:#fff !important;border:none !important;
+  border-radius:6px !important;padding:0.3rem 0.6rem !important;
+  font-family:'Inter',sans-serif !important;font-weight:600 !important;font-size:0.78rem !important;
   box-shadow:0 4px 12px -4px rgba(0,0,0,0.3) !important;
 }
 .city-tooltip::before{display:none !important}
 .leaflet-container{font-family:'Inter',sans-serif}
 
 /* ===== PROOF ===== */
-.proof{background:var(--paper)}
+.proof{background:#fff}
 .logo-strip{
   display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
   background:var(--line);border:1px solid var(--line);
@@ -494,24 +582,17 @@ section.block{padding:7rem 0}
 @media(min-width:1024px){.logo-strip{grid-template-columns:repeat(6,1fr)}}
 .logo-cell{
   padding:2rem 1rem;display:flex;align-items:center;justify-content:center;
-  background:#fff;
-  font-weight:700;font-size:0.78rem;
-  color:var(--gray);letter-spacing:0.05em;text-align:center;line-height:1.3;
-  text-transform:uppercase;
+  background:#fff;font-weight:700;font-size:0.78rem;
+  color:var(--gray);letter-spacing:0.05em;text-align:center;line-height:1.3;text-transform:uppercase;
 }
-.testimonials{
-  display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:3rem;
-}
+.testimonials{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:3rem}
 @media(min-width:900px){.testimonials{grid-template-columns:repeat(3,1fr)}}
 .tcard{
-  background:#fff;border-radius:22px;
+  background:var(--paper);border-radius:22px;
   padding:2rem;display:flex;flex-direction:column;gap:1rem;
 }
 .tcard .stars{color:var(--red);font-size:1rem;letter-spacing:0.05em}
-.tcard q{
-  font-weight:500;font-size:1.05rem;line-height:1.5;color:var(--ink);
-  letter-spacing:-0.012em;quotes:none;
-}
+.tcard q{font-weight:500;font-size:1.05rem;line-height:1.5;color:var(--ink);letter-spacing:-0.012em;quotes:none}
 .tcard q::before{content:'\201C'}
 .tcard q::after{content:'\201D'}
 .tcard .who{margin-top:auto;padding-top:0.85rem;font-size:0.88rem}
@@ -519,10 +600,8 @@ section.block{padding:7rem 0}
 .tcard .who span{color:var(--gray);font-weight:500;font-size:0.82rem;margin-top:0.1rem;display:block}
 
 /* ===== FINAL CTA ===== */
-.final{background:#fff;padding:8rem 0}
-.final-inner{
-  text-align:center;max-width:42rem;margin:0 auto;padding:0 1rem;
-}
+.final{background:var(--paper);padding:8rem 0}
+.final-inner{text-align:center;max-width:42rem;margin:0 auto;padding:0 1rem}
 .final-inner .eyebrow{display:inline-block;margin-bottom:1rem}
 .final-inner h2{
   font-family:'Inter Tight',sans-serif;font-weight:800;
@@ -534,24 +613,21 @@ section.block{padding:7rem 0}
 .final-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:0.75rem}
 
 /* ===== FOOTER ===== */
-footer{background:var(--paper);color:var(--gray);padding:4rem 0 2rem;border-top:1px solid var(--line)}
+footer{background:var(--ink);color:#9ca3af;padding:4rem 0 2rem}
 footer .wrap{display:grid;grid-template-columns:1fr;gap:2.5rem}
 @media(min-width:768px){footer .wrap{grid-template-columns:2fr 1fr 1fr 1fr}}
 .foot-brand{display:flex;flex-direction:column;gap:1rem;max-width:24rem}
-.foot-brand img{height:50px;width:auto}
-.foot-brand p{font-size:0.88rem;color:var(--gray);line-height:1.55}
-.foot-brand strong{color:var(--ink);font-weight:600}
-footer h5{
-  font-weight:600;font-size:0.85rem;color:var(--ink);
-  margin-bottom:1rem;
-}
+.foot-brand img{height:50px;width:auto;filter:brightness(0) invert(1)}
+.foot-brand p{font-size:0.88rem;color:#9ca3af;line-height:1.55}
+.foot-brand strong{color:#fff;font-weight:600}
+footer h5{font-weight:600;font-size:0.85rem;color:#fff;margin-bottom:1rem}
 footer ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
-footer ul a{color:var(--gray);font-size:0.88rem;font-weight:500;transition:color 0.15s}
-footer ul a:hover{color:var(--red)}
+footer ul a{color:#9ca3af;font-size:0.88rem;font-weight:500;transition:color 0.15s}
+footer ul a:hover{color:#fff}
 .foot-bottom{
-  border-top:1px solid var(--line);margin-top:3rem;padding-top:1.5rem;
+  border-top:1px solid #2a2a2e;margin-top:3rem;padding-top:1.5rem;
   display:flex;flex-direction:column;gap:0.5rem;justify-content:space-between;
-  font-size:0.78rem;color:var(--gray-2);
+  font-size:0.78rem;color:#6b7280;
 }
 @media(min-width:768px){.foot-bottom{flex-direction:row;align-items:center}}
 </style>
@@ -564,6 +640,7 @@ footer ul a:hover{color:var(--red)}
     <div class="util-left">
       <a href="#commercial">Commercial proposals</a>
       <a href="#residential">Residential service</a>
+      <a href="#service-area">Service area</a>
     </div>
     <div class="util-right">
       <span>Mon–Sat · 7am–7pm</span>
@@ -581,9 +658,9 @@ footer ul a:hover{color:var(--red)}
     <nav class="primary">
       <a href="#commercial">Commercial</a>
       <a href="#residential">Residential</a>
+      <a href="#pricing">Pricing</a>
       <a href="#service-area">Service area</a>
       <a href="#proof">Reviews</a>
-      <a href="#">Company</a>
     </nav>
     <div class="header-cta">
       <div class="header-phone">(800) 394-POOL<small>Talk to a pro</small></div>
@@ -596,7 +673,7 @@ footer ul a:hover{color:var(--red)}
 <section class="hero">
   <div class="hero-grid">
     <div class="hero-text">
-      <span class="hero-eyebrow"><span class="star">★</span> Florida pool service</span>
+      <span class="hero-eyebrow"><span class="star">★</span> Florida pool service · Since 2009</span>
       <h1>
         Pool service<br>
         that <span class="red">just works.</span>
@@ -604,21 +681,122 @@ footer ul a:hover{color:var(--red)}
       <p class="hero-sub">
         Certified technicians, photo-documented visits, no contracts. The pool company property managers and homeowners actually keep.
       </p>
-      <div class="hero-ctas">
-        <a href="#cta" class="btn btn-red">Get a free quote</a>
-        <a href="#commercial" class="btn btn-soft">For property managers</a>
-      </div>
-      <div class="hero-trust">
-        <div class="item"><span class="stars">★★★★★</span> <strong>500+ Reviews</strong></div>
-        <div class="item">Licensed &amp; Insured</div>
-        <div class="item"><strong>CPO Certified</strong></div>
-        <div class="item"><strong>BBB A+</strong></div>
+
+      <div class="hero-paths">
+        <form class="path-card residential" onsubmit="event.preventDefault(); window.location.hash='#cta';" aria-label="Get a residential pool service quote">
+          <span class="path-tag">For homeowners</span>
+          <h3>Get a quote in 60 seconds.</h3>
+          <div class="zip-input">
+            <input type="text" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="Enter your ZIP code" aria-label="ZIP code" required>
+            <button type="submit">Start <span aria-hidden="true">→</span></button>
+          </div>
+          <p>Same-day response · No contracts · All chemicals included</p>
+        </form>
+        <a class="path-card commercial" href="#commercial">
+          <span class="path-tag">For property managers</span>
+          <h3>Custom commercial proposal in 24 hours.</h3>
+          <p>Hotels · HOAs · Condos · Fitness · Multi-property portfolios. COI on file before contract.</p>
+          <div class="commercial-cta-row">
+            <span style="font-weight:600;font-size:0.86rem;color:var(--ink)">Net-30 billing &amp; volume pricing</span>
+            <span class="btn-go">Request proposal</span>
+          </div>
+        </a>
       </div>
     </div>
     <div class="hero-image" role="img" aria-label="Pool All-Stars technician servicing a Florida pool">
       <div class="float-card">
         <div class="dot"></div>
         <div class="text"><strong>Same tech every visit.</strong>Photo-confirmed reports after every service.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<section class="trustbar" aria-label="Certifications and trust signals">
+  <div class="wrap">
+    <div class="tbadge">
+      <div class="tbadge-icon">A+</div>
+      <div class="tbadge-text"><strong>BBB Rated</strong><span>A+ accredited</span></div>
+    </div>
+    <div class="tbadge">
+      <div class="tbadge-icon blue">CPO</div>
+      <div class="tbadge-text"><strong>CPO Certified</strong><span>Pool &amp; Hot Tub Alliance</span></div>
+    </div>
+    <div class="tbadge">
+      <div class="tbadge-icon">L&amp;I</div>
+      <div class="tbadge-text"><strong>Licensed</strong><span>&amp; fully insured</span></div>
+    </div>
+    <div class="tbadge">
+      <div class="tbadge-icon blue">17</div>
+      <div class="tbadge-text"><strong>17 Years</strong><span>Operating since 2009</span></div>
+    </div>
+    <div class="tbadge">
+      <div class="tbadge-icon"><span class="star">★</span></div>
+      <div class="tbadge-text"><strong>500+ Reviews</strong><span>5-star average</span></div>
+    </div>
+    <div class="tbadge">
+      <div class="tbadge-icon blue">5K</div>
+      <div class="tbadge-text"><strong>5,000+ Pools</strong><span>Serviced &amp; counting</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Transparent pricing</span>
+      <h2>Predictable monthly cost. <span class="red">No surprise fees.</span></h2>
+      <p>Flat-rate pricing with all standard chemicals included. Cancel anytime. Multi-property portfolios get custom volume pricing.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="pcard featured">
+        <span class="ptag">Residential weekly service</span>
+        <h3>Homeowner plan</h3>
+        <p class="ptagline">Most popular for in-ground pools 10,000–25,000 gallons.</p>
+        <div class="price">
+          <span class="from">From</span>
+          <span class="currency">$</span>
+          <span class="amount">135</span>
+          <span class="period">/month</span>
+        </div>
+        <ul>
+          <li>Weekly visit · same tech every week</li>
+          <li>All standard chemicals included</li>
+          <li>Brushing, vacuuming, skimming, basket emptying</li>
+          <li>Filter pressure check &amp; equipment inspection</li>
+          <li>Photo-confirmed service report after every visit</li>
+          <li>No contracts · cancel anytime</li>
+        </ul>
+        <div class="pcard-cta">
+          <a href="#cta" class="btn btn-red">Get my quote</a>
+          <a href="#" class="btn btn-soft">See full pricing</a>
+        </div>
+      </div>
+
+      <div class="pcard commercial">
+        <span class="ptag">Commercial portfolio service</span>
+        <h3>Property manager plan</h3>
+        <p class="ptagline">Hotels, HOAs, condos, fitness facilities, vacation rentals.</p>
+        <div class="price custom">
+          <span class="from">From</span>
+          <span class="amount">Custom</span>
+          <span class="period">multi-property pricing</span>
+        </div>
+        <ul>
+          <li>Single-pool to portfolio-wide service contracts</li>
+          <li>COI on file in 24 hours · health-code compliance</li>
+          <li>Dedicated account manager · single point of contact</li>
+          <li>Net-30 billing · consolidated multi-property invoicing</li>
+          <li>Same-day photo-confirmed visit reports</li>
+          <li>Volume discounts on portfolios of 3+ properties</li>
+        </ul>
+        <div class="pcard-cta">
+          <a href="#commercial" class="btn btn-blue">Request proposal</a>
+          <a href="tel:18003947665" class="btn btn-outline-blue">(800) 394-POOL</a>
+        </div>
       </div>
     </div>
   </div>
@@ -634,54 +812,14 @@ footer ul a:hover{color:var(--red)}
     </div>
 
     <div class="commercial-types">
-      <div class="ct">
-        <div class="ct-icon">01</div>
-        <h3>Hotels &amp; resorts</h3>
-        <div class="ct-meta">Guest-facing service, dawn cleanings, brand standards.</div>
-        <div class="ct-link">Learn more</div>
-      </div>
-      <div class="ct">
-        <div class="ct-icon">02</div>
-        <h3>HOAs &amp; condos</h3>
-        <div class="ct-meta">Board-friendly reporting, multi-pool routes, predictable monthly billing.</div>
-        <div class="ct-link">Learn more</div>
-      </div>
-      <div class="ct">
-        <div class="ct-icon">03</div>
-        <h3>Fitness &amp; aquatic</h3>
-        <div class="ct-meta">Health-code chemistry, member-load chlorine control, log compliance.</div>
-        <div class="ct-link">Learn more</div>
-      </div>
-      <div class="ct">
-        <div class="ct-icon">04</div>
-        <h3>Multi-property</h3>
-        <div class="ct-meta">One contract, one PM contact, consolidated invoicing across portfolios.</div>
-        <div class="ct-link">Learn more</div>
-      </div>
-      <div class="ct">
-        <div class="ct-icon">05</div>
-        <h3>Municipal &amp; schools</h3>
-        <div class="ct-meta">Procurement-ready bids, public-pool standards, audit-ready records.</div>
-        <div class="ct-link">Learn more</div>
-      </div>
-      <div class="ct">
-        <div class="ct-icon">06</div>
-        <h3>Vacation rentals</h3>
-        <div class="ct-meta">Turnover-day service, photo-confirmed visits, rental-platform ready.</div>
-        <div class="ct-link">Learn more</div>
-      </div>
-      <div class="ct">
-        <div class="ct-icon">07</div>
-        <h3>Water parks</h3>
-        <div class="ct-meta">High-volume systems, slide &amp; feature plumbing, peak-season staffing.</div>
-        <div class="ct-link">Learn more</div>
-      </div>
-      <div class="ct">
-        <div class="ct-icon">08</div>
-        <h3>Country clubs</h3>
-        <div class="ct-meta">Member-experience priority, lap pool &amp; resort pool dual specs.</div>
-        <div class="ct-link">Learn more</div>
-      </div>
+      <div class="ct"><div class="ct-icon">01</div><h3>Hotels &amp; resorts</h3><div class="ct-meta">Guest-facing service, dawn cleanings, brand standards.</div><div class="ct-link">Learn more</div></div>
+      <div class="ct"><div class="ct-icon">02</div><h3>HOAs &amp; condos</h3><div class="ct-meta">Board-friendly reporting, multi-pool routes, predictable monthly billing.</div><div class="ct-link">Learn more</div></div>
+      <div class="ct"><div class="ct-icon">03</div><h3>Fitness &amp; aquatic</h3><div class="ct-meta">Health-code chemistry, member-load chlorine control, log compliance.</div><div class="ct-link">Learn more</div></div>
+      <div class="ct"><div class="ct-icon">04</div><h3>Multi-property</h3><div class="ct-meta">One contract, one PM contact, consolidated invoicing across portfolios.</div><div class="ct-link">Learn more</div></div>
+      <div class="ct"><div class="ct-icon">05</div><h3>Municipal &amp; schools</h3><div class="ct-meta">Procurement-ready bids, public-pool standards, audit-ready records.</div><div class="ct-link">Learn more</div></div>
+      <div class="ct"><div class="ct-icon">06</div><h3>Vacation rentals</h3><div class="ct-meta">Turnover-day service, photo-confirmed visits, rental-platform ready.</div><div class="ct-link">Learn more</div></div>
+      <div class="ct"><div class="ct-icon">07</div><h3>Water parks</h3><div class="ct-meta">High-volume systems, slide &amp; feature plumbing, peak-season staffing.</div><div class="ct-link">Learn more</div></div>
+      <div class="ct"><div class="ct-icon">08</div><h3>Country clubs</h3><div class="ct-meta">Member-experience priority, lap pool &amp; resort pool dual specs.</div><div class="ct-link">Learn more</div></div>
     </div>
 
     <div class="commercial-cta">
@@ -699,6 +837,56 @@ footer ul a:hover{color:var(--red)}
         <div class="cc-check">Health-code-ready chemistry &amp; logs</div>
         <div class="cc-check">Net-30 billing, multi-property invoicing</div>
         <div class="cc-check">Photo-confirmed visits &amp; reporting</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="block howitworks" id="how">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">How it works</span>
+      <h2>From quote to <span class="red">crystal clear,</span> in four steps.</h2>
+      <p>The same process for residential and commercial. Predictable, accountable, photo-documented from day one.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <h3>Quick quote.</h3>
+        <p>Tell us about your pool — size, surface, equipment, current issues. Get a fixed-rate quote, usually same day.</p>
+        <div class="step-tag">Same-day · No-pressure</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21l-7.5-7.5a5.5 5.5 0 010-7.78 5.5 5.5 0 017.78 0L12 6.22l-.28-.28a5.5 5.5 0 017.78 7.78L12 21z"/></svg>
+        </div>
+        <h3>On-site walk-through.</h3>
+        <p>A licensed tech visits, tests water, inspects equipment, and confirms the scope. You get a transparent flat rate.</p>
+        <div class="step-tag">CPO certified · No surprises</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h3>Service starts.</h3>
+        <p>Your dedicated technician begins on a set day each week. Same tech, same time, every visit — chemicals included.</p>
+        <div class="step-tag">Same tech · Every visit</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-6h13v6M9 17H5a2 2 0 01-2-2v-2a2 2 0 012-2h4m0 6h13M9 11V5a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+        </div>
+        <h3>Photo reports.</h3>
+        <p>Get a same-day report after every visit: GPS-verified arrival, water readings, dosing, and before/after photos.</p>
+        <div class="step-tag">Built-in accountability</div>
       </div>
     </div>
   </div>
@@ -786,14 +974,14 @@ footer ul a:hover{color:var(--red)}
         </ul>
         <div style="display:flex;flex-wrap:wrap;gap:0.75rem">
           <a href="#cta" class="btn btn-red">Get a free quote</a>
-          <a href="#" class="btn btn-soft">See pricing</a>
+          <a href="#pricing" class="btn btn-soft">See pricing</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== SERVICE AREA / LEAFLET MAP ===== -->
+<!-- ===== SERVICE AREA ===== -->
 <section class="map-section" id="service-area">
   <div class="wrap">
     <div class="head center">
@@ -846,26 +1034,17 @@ footer ul a:hover{color:var(--red)}
       <div class="tcard">
         <div class="stars">★★★★★</div>
         <q>Pool All-Stars manages all eight of our portfolio properties on one contract. Their reporting is the cleanest I've seen in pool service.</q>
-        <div class="who">
-          <strong>Maria S.</strong>
-          <span>VP Ops · Coastal Hospitality</span>
-        </div>
+        <div class="who"><strong>Maria S.</strong><span>VP Ops · Coastal Hospitality</span></div>
       </div>
       <div class="tcard">
         <div class="stars">★★★★★</div>
         <q>They sent the COI before the contract was even signed. That's how you know you're dealing with pros, not a guy with a truck.</q>
-        <div class="who">
-          <strong>Robert K.</strong>
-          <span>Board President · Lakewood HOA</span>
-        </div>
+        <div class="who"><strong>Robert K.</strong><span>Board President · Lakewood HOA</span></div>
       </div>
       <div class="tcard">
         <div class="stars">★★★★★</div>
         <q>Three other companies couldn't keep our pool clear. Same tech every week, detailed reports — perfect water for over a year.</q>
-        <div class="who">
-          <strong>Jennifer M.</strong>
-          <span>Homeowner · Tampa, FL</span>
-        </div>
+        <div class="who"><strong>Jennifer M.</strong><span>Homeowner · Tampa, FL</span></div>
       </div>
     </div>
   </div>
@@ -908,7 +1087,7 @@ footer ul a:hover{color:var(--red)}
         <li><a href="#">Weekly service</a></li>
         <li><a href="#">Green-pool recovery</a></li>
         <li><a href="#">Equipment repair</a></li>
-        <li><a href="#">Pricing</a></li>
+        <li><a href="#pricing">Pricing</a></li>
         <li><a href="#">Get a quote</a></li>
       </ul>
     </div>
@@ -934,27 +1113,16 @@ footer ul a:hover{color:var(--red)}
 <script>
 (function(){
   if(!document.getElementById('service-map')) return;
-
   var map = L.map('service-map', {
-    center: [27.85, -82.5],
-    zoom: 7,
-    scrollWheelZoom: false,
-    zoomControl: true,
-    attributionControl: true
+    center: [27.85, -82.5], zoom: 7,
+    scrollWheelZoom: false, zoomControl: true, attributionControl: true
   });
-
-  // Clean light tiles that play nice with Apple-feel design
   L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    subdomains: 'abcd',
-    maxZoom: 19
+    subdomains: 'abcd', maxZoom: 19
   }).addTo(map);
-
-  // Labels on top so cities stay readable
   L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
-    subdomains: 'abcd',
-    maxZoom: 19,
-    pane: 'shadowPane'
+    subdomains: 'abcd', maxZoom: 19, pane: 'shadowPane'
   }).addTo(map);
 
   var cities = [
@@ -972,25 +1140,18 @@ footer ul a:hover{color:var(--red)}
     { name: 'Fort Lauderdale', coords: [26.1224, -80.1373] },
     { name: 'Miami',           coords: [25.7617, -80.1918] }
   ];
-
   var icon = L.divIcon({
     className: 'service-marker-icon',
     html: '<div class="service-marker-dot"></div>',
-    iconSize: [18, 18],
-    iconAnchor: [9, 9]
+    iconSize: [18, 18], iconAnchor: [9, 9]
   });
-
   cities.forEach(function(c){
-    L.marker(c.coords, { icon: icon })
-      .addTo(map)
+    L.marker(c.coords, { icon: icon }).addTo(map)
       .bindTooltip(c.name, { permanent: false, direction: 'top', offset: [0,-8], className: 'city-tooltip' });
   });
-
-  // Fit to all cities
   var group = L.featureGroup(cities.map(function(c){ return L.marker(c.coords); }));
   map.fitBounds(group.getBounds().pad(0.18));
 })();
 </script>
-
 </body>
 </html>
