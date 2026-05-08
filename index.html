@@ -6,698 +6,700 @@
 <title>Pool All-Stars — Homepage Revamp Mockup</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0B1F3A;
-  --navy-2:#091529;
-  --ink:#0A0A0A;
-  --cyan:#00B4C8;
-  --cyan-2:#06D6E0;
-  --sand:#F4F1EA;
-  --paper:#FBFAF6;
-  --slate:#475569;
-  --line:rgba(11,31,58,0.10);
-  --line-dark:rgba(255,255,255,0.12);
-  --red:#E63946;
+  --red:#C8102E;
+  --red-dark:#A20D24;
+  --blue:#0A2463;
+  --blue-2:#061A4A;
+  --blue-mid:#16307E;
+  --white:#FFFFFF;
+  --paper:#FAFAFA;
+  --cream:#FFF8EC;
+  --ink:#0E1116;
+  --gray-1:#3F4A5C;
+  --gray-2:#6B7280;
+  --line:#E5E7EB;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
   font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   font-size:16px;line-height:1.55;color:var(--ink);
-  background:var(--paper);
+  background:var(--white);
   -webkit-font-smoothing:antialiased;
 }
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 
-.h-display{
-  font-family:'Archivo',sans-serif;
-  font-weight:900;
-  letter-spacing:-0.02em;
-  line-height:0.96;
-  text-transform:none;
-}
-.h-eyebrow{
-  font-family:'Archivo',sans-serif;
+.display{
+  font-family:'Oswald',sans-serif;
   font-weight:700;
-  font-size:0.72rem;
-  letter-spacing:0.18em;
+  letter-spacing:0.005em;
+  line-height:0.95;
   text-transform:uppercase;
 }
-.serif{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
+.huge{
+  font-family:'Anton',sans-serif;
+  font-weight:400;
+  letter-spacing:0.005em;
+  line-height:0.92;
+  text-transform:uppercase;
+}
+.eyebrow{
+  font-family:'Oswald',sans-serif;
+  font-weight:600;
+  font-size:0.78rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+}
 
 .wrap{max-width:1280px;margin:0 auto;padding:0 1.5rem}
 .wrap-narrow{max-width:1080px;margin:0 auto;padding:0 1.5rem}
 
-/* ================= TOP UTILITY BAR ================= */
-.utility{
-  background:var(--ink);color:#cbd5e1;
-  font-size:0.78rem;letter-spacing:0.02em;
+/* ===== flag-stripe accent line (tasteful brand cue) ===== */
+.flag-stripe{
+  height:5px;
+  background:linear-gradient(
+    to right,
+    var(--red) 0 33.33%,
+    var(--white) 33.33% 66.66%,
+    var(--blue) 66.66% 100%
+  );
 }
-.utility .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:0.6rem;padding-bottom:0.6rem}
-.utility a{color:#e2e8f0;display:inline-flex;align-items:center;gap:0.4rem}
-.utility a:hover{color:var(--cyan-2)}
-.util-left{display:flex;gap:1.4rem;flex-wrap:wrap}
-.util-right{display:flex;gap:1.4rem;align-items:center;flex-wrap:wrap}
-.util-pill{padding:0.18rem 0.55rem;border:1px solid #334155;border-radius:999px;color:#94a3b8;font-weight:600;font-size:0.7rem}
+.flag-stripe.dark{
+  background:linear-gradient(
+    to right,
+    var(--red) 0 33.33%,
+    rgba(255,255,255,0.85) 33.33% 66.66%,
+    var(--blue) 66.66% 100%
+  );
+}
+.divider-bar{
+  height:6px;width:60px;background:var(--red);margin-bottom:1.25rem;
+}
 
-/* ================= HEADER ================= */
+/* ===== UTILITY BAR ===== */
+.utility{background:var(--blue);color:#cdd6e8;font-size:0.82rem}
+.utility .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:0.55rem;padding-bottom:0.55rem;flex-wrap:wrap}
+.utility a{color:#fff;font-weight:600}
+.utility a:hover{color:var(--red)}
+.util-left{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap}
+.util-left .star{color:var(--red);font-size:0.7rem;letter-spacing:0.12em}
+.util-right{display:flex;gap:1.25rem;align-items:center;font-weight:700;color:#fff}
+
+/* ===== HEADER ===== */
 .header{
-  background:#fff;
+  background:var(--white);
   position:sticky;top:0;z-index:50;
   border-bottom:1px solid var(--line);
 }
-.header .wrap{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding-top:1.1rem;padding-bottom:1.1rem}
-.brand{display:flex;align-items:center;gap:0.6rem}
-.brand-mark{
-  width:42px;height:42px;border-radius:10px;
-  background:linear-gradient(140deg,var(--navy),var(--cyan));
-  display:flex;align-items:center;justify-content:center;color:#fff;
-  font-family:'Archivo',sans-serif;font-weight:900;font-size:1.1rem;letter-spacing:-0.02em;
-  box-shadow:0 6px 20px -8px rgba(0,180,200,0.5);
-}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding-top:0.85rem;padding-bottom:0.85rem}
+.brand{display:flex;align-items:center;gap:0.85rem}
+.brand img{height:60px;width:auto;display:block}
 .brand-text{
-  font-family:'Archivo',sans-serif;font-weight:900;font-size:1.15rem;letter-spacing:-0.01em;
-  color:var(--navy);line-height:1;
+  font-family:'Oswald',sans-serif;font-weight:700;font-size:1.3rem;
+  color:var(--blue);text-transform:uppercase;letter-spacing:0.01em;line-height:1;
 }
-.brand-text small{display:block;font-size:0.62rem;font-weight:600;color:var(--slate);letter-spacing:0.18em;margin-top:0.25rem;text-transform:uppercase}
+.brand-text small{
+  display:block;font-family:'Inter',sans-serif;font-weight:600;
+  font-size:0.65rem;color:var(--red);letter-spacing:0.18em;
+  margin-top:0.3rem;text-transform:uppercase;
+}
+
 nav.primary{display:none;gap:2rem;align-items:center}
-nav.primary a{font-weight:500;color:#1e293b;font-size:0.95rem;position:relative}
-nav.primary a:hover{color:var(--navy)}
-nav.primary a.has-caret::after{content:'';display:inline-block;width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);margin-left:0.45rem;opacity:0.6}
-.header-cta{display:none;gap:0.6rem;align-items:center}
-.header-phone{font-weight:700;color:var(--navy);font-size:0.95rem}
-.header-phone small{display:block;font-size:0.65rem;font-weight:600;color:var(--slate);letter-spacing:0.1em;text-transform:uppercase}
+nav.primary a{
+  font-family:'Oswald',sans-serif;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.08em;font-size:0.92rem;
+  color:var(--blue);
+}
+nav.primary a:hover{color:var(--red)}
+
+.header-cta{display:none;gap:0.85rem;align-items:center}
+.header-phone{
+  font-family:'Oswald',sans-serif;font-weight:700;color:var(--blue);
+  font-size:1.05rem;letter-spacing:0.04em;
+}
+.header-phone small{
+  display:block;font-family:'Inter',sans-serif;font-weight:600;
+  font-size:0.62rem;color:var(--red);letter-spacing:0.16em;
+  text-transform:uppercase;margin-top:0.1rem;
+}
 
 @media(min-width:1024px){
   nav.primary,.header-cta{display:flex}
 }
 
-/* ================= BUTTONS ================= */
+/* ===== BUTTONS ===== */
 .btn{
   display:inline-flex;align-items:center;gap:0.55rem;
-  padding:0.95rem 1.4rem;font-weight:700;font-size:0.95rem;
-  border-radius:8px;transition:all 0.18s ease;
-  font-family:'Inter',sans-serif;letter-spacing:-0.005em;
+  padding:1rem 1.6rem;font-weight:700;font-size:0.92rem;
+  font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.08em;
+  border-radius:2px;
+  transition:all 0.15s ease;
+  border:2px solid transparent;
 }
-.btn-primary{background:var(--cyan);color:var(--navy)}
-.btn-primary:hover{background:var(--cyan-2);transform:translateY(-1px)}
-.btn-dark{background:var(--navy);color:#fff}
-.btn-dark:hover{background:var(--navy-2)}
-.btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3)}
-.btn-ghost:hover{background:rgba(255,255,255,0.08)}
-.btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
-.btn-outline:hover{background:var(--navy);color:#fff}
-.btn-arrow::after{content:'→';font-weight:400;transform:translateX(0);transition:transform 0.18s}
-.btn:hover.btn-arrow::after{transform:translateX(3px)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-dark)}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:var(--blue-2)}
+.btn-white{background:#fff;color:var(--blue);border-color:#fff}
+.btn-white:hover{background:transparent;color:#fff}
+.btn-outline-blue{background:transparent;color:var(--blue);border-color:var(--blue)}
+.btn-outline-blue:hover{background:var(--blue);color:#fff}
+.btn-outline-white{background:transparent;color:#fff;border-color:rgba(255,255,255,0.5)}
+.btn-outline-white:hover{background:#fff;color:var(--blue);border-color:#fff}
 
-/* ================= HERO ================= */
+/* ===== HERO ===== */
 .hero{
+  background:var(--white);
+  padding:3.5rem 0 4.5rem;
   position:relative;
-  background:var(--navy);
-  color:#fff;
   overflow:hidden;
-  padding:5rem 0 0;
-}
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse at 80% -10%, rgba(0,180,200,0.35), transparent 50%),
-    radial-gradient(ellipse at 0% 100%, rgba(6,214,224,0.18), transparent 60%),
-    var(--navy);
-  z-index:0;
 }
 .hero-grid{
-  position:relative;z-index:1;
-  display:grid;grid-template-columns:1fr;gap:3rem;align-items:end;
+  display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:center;
 }
-.hero-left{padding-bottom:5rem}
-.hero-eyebrow{
+@media(min-width:1024px){
+  .hero-grid{grid-template-columns:1.15fr 1fr;gap:4rem}
+}
+.hero-pill{
   display:inline-flex;align-items:center;gap:0.6rem;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.14);
-  padding:0.4rem 0.85rem;border-radius:999px;
-  font-family:'Archivo',sans-serif;font-weight:600;
-  font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;
-  color:#cbd5e1;margin-bottom:1.75rem;
+  background:var(--blue);color:#fff;
+  padding:0.45rem 0.85rem;border-radius:2px;
+  font-family:'Oswald',sans-serif;font-weight:600;
+  text-transform:uppercase;font-size:0.72rem;letter-spacing:0.16em;
+  margin-bottom:1.5rem;
 }
-.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--cyan-2);box-shadow:0 0 0 4px rgba(6,214,224,0.2)}
+.hero-pill .star{color:var(--red);font-size:0.85rem;line-height:1}
 .hero h1{
-  font-family:'Archivo',sans-serif;font-weight:900;
-  font-size:clamp(2.5rem,7vw,5.5rem);line-height:0.95;letter-spacing:-0.025em;
-  color:#fff;margin-bottom:1.5rem;
+  font-family:'Anton',sans-serif;font-weight:400;
+  font-size:clamp(3rem,8vw,6.5rem);line-height:0.92;letter-spacing:0.005em;
+  color:var(--blue);text-transform:uppercase;
+  margin-bottom:1.25rem;
 }
-.hero h1 .accent{color:var(--cyan-2)}
-.hero h1 .ital{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-0.02em}
+.hero h1 .red{color:var(--red);display:block}
+.hero h1 .stripe{
+  display:inline-block;width:0.55em;height:0.12em;background:var(--red);
+  vertical-align:middle;margin:0 0.18em 0.18em 0;
+}
 .hero-sub{
-  font-size:1.15rem;color:rgba(255,255,255,0.78);max-width:30rem;
-  line-height:1.6;margin-bottom:2.25rem;
+  font-size:1.1rem;color:var(--gray-1);max-width:32rem;
+  line-height:1.6;margin-bottom:2rem;font-weight:500;
 }
+.hero-ctas{display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:2rem}
+.hero-trust{
+  display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;
+  padding-top:1.5rem;border-top:1px solid var(--line);
+  font-size:0.82rem;color:var(--gray-1);font-weight:500;
+}
+.hero-trust .item{display:flex;align-items:center;gap:0.45rem}
+.hero-trust .star-icon{color:var(--red);font-size:0.95rem;line-height:1}
+.hero-trust strong{color:var(--blue);font-weight:700}
 
-/* path splitter */
-.paths{
-  display:grid;grid-template-columns:1fr;gap:0.75rem;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:14px;padding:0.75rem;
-  max-width:36rem;
-}
-.path{
-  display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  padding:1.1rem 1.25rem;
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:10px;
-  transition:all 0.18s ease;
-  cursor:pointer;
-}
-.path:hover{background:rgba(0,180,200,0.12);border-color:var(--cyan)}
-.path-label{display:flex;align-items:center;gap:0.85rem}
-.path-icon{
-  width:38px;height:38px;border-radius:8px;
-  background:rgba(0,180,200,0.15);color:var(--cyan-2);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Archivo',sans-serif;font-weight:900;font-size:0.85rem;
-  flex-shrink:0;
-}
-.path-text strong{display:block;font-size:1rem;color:#fff;letter-spacing:-0.01em}
-.path-text span{display:block;font-size:0.82rem;color:rgba(255,255,255,0.6);margin-top:0.1rem}
-.path-arrow{color:rgba(255,255,255,0.4);font-size:1.4rem;transition:all 0.18s}
-.path:hover .path-arrow{color:var(--cyan-2);transform:translateX(4px)}
-
-.hero-right{position:relative;align-self:stretch;display:flex;align-items:flex-end}
-.hero-card-stack{
-  position:relative;width:100%;
-  display:none;
-}
 .hero-photo{
-  width:100%;border-radius:16px;overflow:hidden;
-  border:1px solid rgba(255,255,255,0.1);
-  box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
-  background:#0a1929;
+  position:relative;
+  background:var(--blue);
+  border:4px solid var(--blue);
   aspect-ratio:4/5;
   background-image:url('assets/images/hero-bg.jpg');
   background-size:cover;background-position:center;
-  position:relative;
 }
-.hero-photo::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(11,31,58,0) 40%,rgba(11,31,58,0.7) 100%);
+.hero-photo .badge{
+  position:absolute;top:0;right:0;
+  background:var(--red);color:#fff;
+  font-family:'Oswald',sans-serif;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.14em;font-size:0.72rem;
+  padding:0.6rem 1rem;
+  border-bottom:3px solid var(--blue);
 }
-.hero-floater{
-  position:absolute;background:#fff;color:var(--ink);
-  border-radius:14px;padding:1rem 1.1rem;
-  box-shadow:0 20px 40px -15px rgba(0,0,0,0.5);
-  font-family:'Inter',sans-serif;
+.hero-photo .stripe-bottom{
+  position:absolute;left:0;right:0;bottom:0;
+  display:flex;background:var(--blue);
 }
-.hero-floater.fl-1{
-  bottom:-1rem;left:-1rem;
-  display:flex;align-items:center;gap:0.85rem;
-  border-left:4px solid var(--cyan);
+.hero-photo .stripe-bottom > div{
+  flex:1;padding:1rem 1.1rem;color:#fff;
 }
-.hero-floater.fl-1 .num{
-  font-family:'Archivo',sans-serif;font-weight:900;
-  font-size:1.6rem;color:var(--navy);letter-spacing:-0.02em;line-height:1;
+.hero-photo .stripe-bottom > div:first-child{background:var(--red);border-right:2px solid var(--blue)}
+.hero-photo .stripe-bottom .num{
+  font-family:'Anton',sans-serif;font-size:1.7rem;line-height:1;color:#fff;
 }
-.hero-floater.fl-1 .lbl{font-size:0.72rem;color:var(--slate);font-weight:600;line-height:1.3}
-
-@media(min-width:1024px){
-  .hero{padding:6rem 0 0}
-  .hero-grid{grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:end}
-  .hero-card-stack{display:block;margin-bottom:-3rem}
-  .hero-left{padding-bottom:6rem}
+.hero-photo .stripe-bottom .lbl{
+  font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;
+  font-size:0.7rem;letter-spacing:0.12em;color:rgba(255,255,255,0.85);margin-top:0.3rem;
 }
 
-/* ================= STATS STRIP ================= */
-.stats{
-  background:#fff;
-  border-bottom:1px solid var(--line);
-  position:relative;z-index:2;
+/* ===== SCOREBOARD STATS STRIP ===== */
+.scoreboard{background:var(--blue);color:#fff;border-top:5px solid var(--red);border-bottom:5px solid var(--red)}
+.scoreboard .wrap{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:0;padding:0;
 }
-.stats .wrap{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:0;
-  padding:0;
+.score{
+  padding:1.85rem 1rem;text-align:center;
+  border-right:1px solid rgba(255,255,255,0.1);
+  border-bottom:1px solid rgba(255,255,255,0.1);
 }
-.stat{
-  padding:2rem 1.5rem;
-  border-right:1px solid var(--line);
-  border-bottom:1px solid var(--line);
+.score:nth-child(2n){border-right:none}
+.score .num{
+  font-family:'Anton',sans-serif;font-weight:400;
+  font-size:clamp(2.4rem,5vw,3.6rem);color:#fff;line-height:1;letter-spacing:0.02em;
 }
-.stat:nth-child(2n){border-right:none}
-.stat .num{
-  font-family:'Archivo',sans-serif;font-weight:900;
-  font-size:clamp(1.8rem,4vw,2.6rem);color:var(--navy);
-  letter-spacing:-0.025em;line-height:1;margin-bottom:0.45rem;
+.score .num span{color:var(--red)}
+.score .lbl{
+  font-family:'Oswald',sans-serif;font-weight:500;text-transform:uppercase;
+  font-size:0.78rem;letter-spacing:0.16em;color:rgba(255,255,255,0.78);margin-top:0.55rem;
 }
-.stat .num em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--cyan)}
-.stat .lbl{font-size:0.78rem;color:var(--slate);font-weight:500;letter-spacing:0.04em}
-
 @media(min-width:768px){
-  .stats .wrap{grid-template-columns:repeat(4,1fr)}
-  .stat{border-bottom:none;padding:2.25rem 1.5rem}
-  .stat:last-child{border-right:none}
+  .scoreboard .wrap{grid-template-columns:repeat(4,1fr)}
+  .score{border-bottom:none;padding:2.4rem 1rem}
+  .score:last-child{border-right:none}
 }
 
-/* ================= SECTION FRAME ================= */
+/* ===== SECTION FRAME ===== */
 section.block{padding:6rem 0}
 .section-head{margin-bottom:3rem;max-width:54rem}
-.section-head .h-eyebrow{color:var(--cyan);margin-bottom:1rem;display:inline-block}
+.section-head .eyebrow{color:var(--red);margin-bottom:0.85rem;display:inline-block}
 .section-head h2{
-  font-family:'Archivo',sans-serif;font-weight:900;
-  font-size:clamp(2rem,4.5vw,3.4rem);letter-spacing:-0.025em;line-height:1.02;
-  color:var(--navy);margin-bottom:1rem;
+  font-family:'Anton',sans-serif;font-weight:400;
+  font-size:clamp(2.2rem,5vw,4rem);letter-spacing:0.005em;line-height:0.98;
+  color:var(--blue);text-transform:uppercase;
+  margin-bottom:1rem;
 }
-.section-head h2 .ital{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
-.section-head p{font-size:1.1rem;color:var(--slate);max-width:42rem}
+.section-head h2 .red{color:var(--red)}
+.section-head p{font-size:1.08rem;color:var(--gray-1);max-width:42rem;line-height:1.65}
 
-/* ================= COMMERCIAL FEATURE ================= */
-.commercial{background:var(--sand)}
-.commercial .head-row{
-  display:grid;grid-template-columns:1fr;gap:2rem;align-items:end;margin-bottom:3rem;
-}
-@media(min-width:900px){
-  .commercial .head-row{grid-template-columns:1.4fr 1fr;gap:4rem}
+/* ===== COMMERCIAL ===== */
+.commercial{background:var(--paper);position:relative}
+.commercial::before{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:5px;background:var(--red);
 }
 .commercial-types{
   display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
-  background:var(--line);
-  border:1px solid var(--line);
-  border-radius:14px;overflow:hidden;
+  background:var(--blue);border:2px solid var(--blue);
 }
 @media(min-width:768px){.commercial-types{grid-template-columns:repeat(4,1fr)}}
 .ct{
-  background:#fff;padding:1.75rem 1.4rem;
-  display:flex;flex-direction:column;gap:0.85rem;
+  background:#fff;padding:1.85rem 1.4rem 1.6rem;
+  display:flex;flex-direction:column;gap:0.65rem;
   transition:all 0.18s ease;cursor:pointer;
   position:relative;
 }
-.ct:hover{background:var(--navy);color:#fff}
-.ct:hover .ct-icon{background:rgba(0,180,200,0.15);color:var(--cyan-2)}
-.ct:hover .ct-meta{color:rgba(255,255,255,0.65)}
-.ct-icon{
-  width:42px;height:42px;border-radius:10px;
-  background:#EEF2F7;color:var(--navy);
+.ct:hover{background:var(--blue);color:#fff}
+.ct:hover .ct-num{background:var(--red);color:#fff}
+.ct:hover .ct-meta{color:rgba(255,255,255,0.78)}
+.ct:hover h3{color:#fff}
+.ct-num{
+  width:38px;height:38px;
+  background:var(--cream);color:var(--blue);
   display:flex;align-items:center;justify-content:center;
-  font-family:'Archivo',sans-serif;font-weight:900;font-size:0.95rem;
+  font-family:'Oswald',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.06em;
+  border:2px solid var(--blue);
   transition:all 0.18s;
 }
-.ct h3{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:-0.01em}
-.ct-meta{font-size:0.85rem;color:var(--slate);line-height:1.5}
+.ct h3{
+  font-family:'Oswald',sans-serif;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.04em;
+  font-size:1.05rem;color:var(--blue);
+}
+.ct-meta{font-size:0.88rem;color:var(--gray-1);line-height:1.55}
+.ct-arrow{
+  margin-top:auto;padding-top:0.85rem;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:0.72rem;
+  letter-spacing:0.16em;text-transform:uppercase;color:var(--red);
+}
+.ct:hover .ct-arrow{color:#fff}
 
 .commercial-cta{
-  background:var(--navy);color:#fff;
-  border-radius:14px;padding:2.5rem;
+  background:var(--red);color:#fff;
+  padding:2.5rem;margin-top:3rem;
+  border:4px solid var(--red);
+  border-bottom:6px solid var(--blue);
   display:grid;grid-template-columns:1fr;gap:2rem;align-items:center;
-  margin-top:3rem;
-  background-image:
-    radial-gradient(ellipse at 100% 0%, rgba(0,180,200,0.25), transparent 50%);
 }
 @media(min-width:900px){
-  .commercial-cta{grid-template-columns:1.5fr 1fr;padding:3rem}
+  .commercial-cta{grid-template-columns:1.5fr 1fr;padding:3rem 3rem 2.75rem}
 }
 .commercial-cta h3{
-  font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(1.5rem,3vw,2.1rem);
-  letter-spacing:-0.02em;line-height:1.05;margin-bottom:0.85rem;color:#fff;
+  font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;
+  font-size:clamp(1.6rem,3vw,2.4rem);line-height:1;letter-spacing:0.005em;
+  color:#fff;margin-bottom:0.85rem;
 }
-.commercial-cta p{color:rgba(255,255,255,0.75);font-size:0.98rem;line-height:1.6}
-.commercial-cta .ctas{display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:0.5rem}
+.commercial-cta p{color:rgba(255,255,255,0.95);font-size:1rem;line-height:1.6;font-weight:500}
+.commercial-cta .ctas{display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1.25rem}
 .cc-checks{display:grid;grid-template-columns:1fr;gap:0.6rem}
 .cc-check{
-  display:flex;align-items:center;gap:0.6rem;
-  font-size:0.92rem;color:rgba(255,255,255,0.85);
+  display:flex;align-items:flex-start;gap:0.65rem;
+  font-size:0.93rem;color:#fff;font-weight:500;line-height:1.4;
 }
-.cc-check span{
-  width:22px;height:22px;border-radius:50%;
-  background:rgba(0,180,200,0.18);color:var(--cyan-2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:0.75rem;font-weight:900;flex-shrink:0;
+.cc-check::before{
+  content:'★';color:#fff;font-size:0.95rem;
+  flex-shrink:0;line-height:1.45;
 }
 
-/* ================= SYSTEM (HOW WE OPERATE) ================= */
+/* ===== SYSTEM ===== */
 .system{background:#fff}
 .system-grid{
   display:grid;grid-template-columns:1fr;gap:1.25rem;
 }
 @media(min-width:900px){.system-grid{grid-template-columns:repeat(3,1fr)}}
 .sys-card{
-  border:1px solid var(--line);border-radius:14px;
-  padding:2rem 1.75rem;background:#fff;
+  background:#fff;border:2px solid var(--blue);
+  padding:2rem 1.85rem;
   display:flex;flex-direction:column;gap:1rem;
-  position:relative;overflow:hidden;
   transition:all 0.18s ease;
+  position:relative;
 }
-.sys-card:hover{transform:translateY(-3px);box-shadow:0 20px 40px -20px rgba(11,31,58,0.18);border-color:var(--cyan)}
+.sys-card:hover{background:var(--blue);color:#fff}
+.sys-card:hover h3,.sys-card:hover p{color:#fff}
+.sys-card:hover .sys-num{background:var(--red);color:#fff;border-color:var(--red)}
+.sys-card:hover .sys-tag{color:rgba(255,255,255,0.85)}
 .sys-num{
-  font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
-  font-size:3rem;line-height:1;color:var(--cyan);letter-spacing:-0.04em;
+  width:54px;height:54px;
+  background:var(--blue);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Anton',sans-serif;font-size:1.45rem;letter-spacing:0.04em;
+  border:3px solid var(--blue);
+  transition:all 0.18s;
 }
 .sys-card h3{
-  font-family:'Archivo',sans-serif;font-weight:800;font-size:1.25rem;letter-spacing:-0.01em;
-  color:var(--navy);
+  font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;
+  font-size:1.2rem;letter-spacing:0.02em;color:var(--blue);
 }
-.sys-card p{font-size:0.95rem;color:var(--slate);line-height:1.65}
+.sys-card p{font-size:0.95rem;color:var(--gray-1);line-height:1.65}
 .sys-tag{
-  font-family:'Archivo',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.14em;
-  text-transform:uppercase;color:var(--cyan);margin-top:auto;padding-top:0.75rem;border-top:1px dashed var(--line);
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:0.7rem;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--red);
+  margin-top:auto;padding-top:0.85rem;border-top:1px solid var(--line);
 }
+.sys-card:hover .sys-tag{border-color:rgba(255,255,255,0.18)}
 
-/* ================= FLEET / OPS BANNER ================= */
-.ops-banner{
-  background:var(--navy);color:#fff;
-  padding:0;overflow:hidden;
+/* ===== FLEET BANNER ===== */
+.fleet{background:var(--red);color:#fff;overflow:hidden;position:relative}
+.fleet-grid{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:900px){.fleet-grid{grid-template-columns:1fr 1fr}}
+.fleet-text{padding:5rem 1.5rem;display:flex;flex-direction:column;justify-content:center;max-width:36rem;margin:0 auto}
+.fleet-text .eyebrow{color:#fff;margin-bottom:0.85rem;display:inline-block}
+.fleet-text h2{
+  font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;
+  font-size:clamp(2rem,4.5vw,3.4rem);letter-spacing:0.005em;line-height:0.98;
+  color:#fff;margin-bottom:1.25rem;
 }
-.ops-banner-grid{
-  display:grid;grid-template-columns:1fr;gap:0;
-}
-@media(min-width:900px){.ops-banner-grid{grid-template-columns:1fr 1fr;align-items:stretch}}
-.ops-text{padding:5rem 1.5rem;display:flex;flex-direction:column;justify-content:center;max-width:36rem;margin:0 auto}
-.ops-img{
+.fleet-text p{color:rgba(255,255,255,0.95);font-size:1.02rem;line-height:1.65;font-weight:500;margin-bottom:1.85rem}
+.fleet-list{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem 1.5rem;margin-bottom:2rem}
+.fleet-list li{list-style:none;display:flex;align-items:center;gap:0.55rem;font-size:0.92rem;color:#fff;font-weight:600}
+.fleet-list li::before{content:'★';color:#fff;font-size:0.85rem}
+.fleet-img{
   background-image:url('assets/images/pool-allstars-truck.png');
   background-size:cover;background-position:center;
   min-height:380px;
-  position:relative;
+  border-left:5px solid var(--blue);
 }
-.ops-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,transparent 30%)}
-.ops-text h2{
-  font-family:'Archivo',sans-serif;font-weight:900;
-  font-size:clamp(1.9rem,4vw,3rem);letter-spacing:-0.025em;line-height:1;
-  color:#fff;margin-bottom:1.25rem;
-}
-.ops-text h2 .ital{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--cyan-2)}
-.ops-text p{color:rgba(255,255,255,0.72);font-size:1.02rem;line-height:1.65;margin-bottom:1.75rem}
-.ops-list{display:grid;grid-template-columns:1fr 1fr;gap:0.55rem 1.5rem;margin-bottom:2rem}
-.ops-list li{list-style:none;display:flex;align-items:center;gap:0.55rem;font-size:0.9rem;color:rgba(255,255,255,0.85)}
-.ops-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cyan-2);flex-shrink:0}
 
-/* ================= RESIDENTIAL ================= */
-.residential{background:var(--paper);position:relative}
+/* ===== RESIDENTIAL ===== */
+.residential{background:#fff}
 .res-grid{
   display:grid;grid-template-columns:1fr;gap:3rem;align-items:center;
 }
 @media(min-width:900px){.res-grid{grid-template-columns:1fr 1fr;gap:5rem}}
 .res-image{
-  border-radius:18px;overflow:hidden;
-  background:linear-gradient(135deg,#0B1F3A 0%,#00B4C8 100%);
-  aspect-ratio:5/4;
   position:relative;
-  box-shadow:0 25px 50px -20px rgba(11,31,58,0.3);
+  border:5px solid var(--blue);
+  aspect-ratio:5/4;
   background-image:url('assets/images/hero-bg.jpg');
   background-size:cover;background-position:center;
 }
-.res-image::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 50%,rgba(11,31,58,0.55));
+.res-image .quote-block{
+  position:absolute;bottom:0;left:0;right:0;
+  background:var(--blue);color:#fff;
+  padding:1.5rem 1.6rem;
+  border-top:4px solid var(--red);
 }
-.res-quote{
-  position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;
-  color:#fff;z-index:2;
-  font-family:'Instrument Serif',serif;font-style:italic;
-  font-size:1.4rem;line-height:1.3;letter-spacing:-0.01em;
+.res-image .quote-block .stars{color:var(--red);letter-spacing:0.14em;font-size:1rem;margin-bottom:0.6rem}
+.res-image .quote-block .text{
+  font-family:'Inter',sans-serif;font-weight:600;font-size:1.02rem;line-height:1.45;color:#fff;
 }
-.res-quote-attr{
-  font-family:'Inter',sans-serif;font-style:normal;font-weight:600;
-  font-size:0.8rem;color:rgba(255,255,255,0.75);margin-top:0.6rem;letter-spacing:0.04em;
-}
-.res-content h2{
-  font-family:'Archivo',sans-serif;font-weight:900;
-  font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-0.025em;line-height:1;color:var(--navy);
-  margin-bottom:1.25rem;
-}
-.res-content h2 .ital{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
-.res-content p{font-size:1.05rem;color:var(--slate);line-height:1.65;margin-bottom:1.25rem}
-.res-checks{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem 1.5rem;margin:1.5rem 0 2rem}
-.res-checks li{list-style:none;display:flex;align-items:center;gap:0.55rem;font-size:0.92rem;color:var(--ink);font-weight:500}
-.res-checks li::before{
-  content:'✓';color:var(--cyan);font-weight:900;
-  display:inline-flex;align-items:center;justify-content:center;
-  width:20px;height:20px;border-radius:50%;background:rgba(0,180,200,0.15);
-  font-size:0.75rem;
+.res-image .quote-block .who{
+  font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;
+  font-size:0.78rem;letter-spacing:0.14em;color:rgba(255,255,255,0.85);margin-top:0.7rem;
 }
 
-/* ================= NATIONAL FOOTPRINT ================= */
-.footprint{
-  background:var(--navy);color:#fff;
-  padding:6rem 0;position:relative;overflow:hidden;
+.res-content h2{
+  font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;
+  font-size:clamp(2rem,4.2vw,3.4rem);letter-spacing:0.005em;line-height:0.98;
+  color:var(--blue);margin-bottom:1.25rem;
 }
-.footprint::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 20% 50%, rgba(0,180,200,0.18), transparent 60%);
+.res-content h2 .red{color:var(--red);display:block}
+.res-content p{font-size:1.05rem;color:var(--gray-1);line-height:1.65;margin-bottom:1.25rem;font-weight:500}
+.res-checks{display:grid;grid-template-columns:1fr 1fr;gap:0.55rem 1.5rem;margin:1.75rem 0 2rem}
+.res-checks li{
+  list-style:none;display:flex;align-items:center;gap:0.55rem;
+  font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;
+  font-size:0.85rem;letter-spacing:0.06em;color:var(--blue);
 }
-.fp-inner{position:relative;z-index:1}
+.res-checks li::before{content:'★';color:var(--red);font-size:0.95rem}
+
+/* ===== FOOTPRINT MAP ===== */
+.footprint{background:var(--blue);color:#fff;padding:6rem 0;position:relative}
 .fp-head{text-align:center;max-width:48rem;margin:0 auto 3rem}
-.fp-head .h-eyebrow{color:var(--cyan-2);margin-bottom:1rem;display:inline-block}
+.fp-head .eyebrow{color:var(--red);margin-bottom:0.85rem;display:inline-block;background:#fff;padding:0.35rem 0.85rem}
 .fp-head h2{
-  font-family:'Archivo',sans-serif;font-weight:900;
-  font-size:clamp(2rem,4.5vw,3.4rem);letter-spacing:-0.025em;line-height:1;color:#fff;margin-bottom:1rem;
+  font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;
+  font-size:clamp(2.2rem,5vw,4rem);letter-spacing:0.005em;line-height:0.98;color:#fff;margin-bottom:1rem;
 }
-.fp-head h2 .ital{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--cyan-2)}
-.fp-head p{color:rgba(255,255,255,0.75);font-size:1.05rem}
+.fp-head h2 .red{color:var(--red);display:block}
+.fp-head p{color:rgba(255,255,255,0.85);font-size:1.05rem;font-weight:500}
 
 .fp-map{
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:18px;
+  background:var(--blue-2);
+  border:4px solid #fff;
   padding:2rem;
-  position:relative;
-  overflow:hidden;
 }
 .fp-map svg{width:100%;height:auto;display:block;max-height:420px}
-.fp-map .state{fill:rgba(255,255,255,0.06);stroke:rgba(255,255,255,0.15);stroke-width:0.5;transition:all 0.2s}
-.fp-map .state.active{fill:var(--cyan);stroke:var(--cyan-2)}
-.fp-map .state.expanding{fill:rgba(0,180,200,0.25);stroke:rgba(0,180,200,0.5)}
+.fp-map .state{fill:rgba(255,255,255,0.08);stroke:rgba(255,255,255,0.25);stroke-width:1;transition:all 0.2s}
+.fp-map .state.active{fill:var(--red);stroke:#fff;stroke-width:2}
+.fp-map .state.expanding{fill:rgba(255,255,255,0.35);stroke:#fff;stroke-width:1}
 .fp-legend{
   display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;
-  margin-top:1.5rem;font-size:0.85rem;color:rgba(255,255,255,0.7);
+  margin-top:1.75rem;font-family:'Oswald',sans-serif;font-weight:500;
+  font-size:0.82rem;color:#fff;text-transform:uppercase;letter-spacing:0.1em;
 }
-.fp-legend .key{display:inline-flex;align-items:center;gap:0.5rem}
-.fp-legend .swatch{width:14px;height:14px;border-radius:3px}
-.fp-legend .swatch.active{background:var(--cyan)}
-.fp-legend .swatch.expanding{background:rgba(0,180,200,0.4);border:1px solid rgba(0,180,200,0.6)}
-.fp-legend .swatch.future{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25)}
+.fp-legend .key{display:inline-flex;align-items:center;gap:0.55rem}
+.fp-legend .swatch{width:16px;height:16px;border:2px solid #fff}
+.fp-legend .swatch.active{background:var(--red)}
+.fp-legend .swatch.expanding{background:rgba(255,255,255,0.35)}
+.fp-legend .swatch.future{background:transparent}
 
-/* ================= CLIENTS / PROOF ================= */
-.proof{background:#fff}
+/* ===== PROOF ===== */
+.proof{background:var(--paper)}
 .logo-strip{
   display:grid;grid-template-columns:repeat(2,1fr);gap:0;
-  border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  border:2px solid var(--blue);background:var(--blue);
 }
 @media(min-width:768px){.logo-strip{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:1024px){.logo-strip{grid-template-columns:repeat(6,1fr)}}
 .logo-cell{
-  padding:1.75rem 1rem;display:flex;align-items:center;justify-content:center;
+  padding:1.85rem 1rem;display:flex;align-items:center;justify-content:center;
+  background:#fff;
   border-right:1px solid var(--line);border-bottom:1px solid var(--line);
-  font-family:'Archivo',sans-serif;font-weight:800;font-size:0.85rem;
-  color:#94a3b8;letter-spacing:0.06em;text-align:center;line-height:1.2;
+  font-family:'Oswald',sans-serif;font-weight:700;font-size:0.78rem;
+  color:var(--blue);letter-spacing:0.14em;text-align:center;line-height:1.3;
+  text-transform:uppercase;
 }
-.logo-cell:nth-child(6n){border-right:none}
 .testimonials{
-  display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:3.5rem;
+  display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:3rem;
 }
 @media(min-width:900px){.testimonials{grid-template-columns:repeat(3,1fr)}}
 .tcard{
-  border:1px solid var(--line);border-radius:14px;
-  padding:1.85rem;background:var(--paper);
-  display:flex;flex-direction:column;gap:1rem;
+  background:#fff;border-top:5px solid var(--red);
+  border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:1.85rem;display:flex;flex-direction:column;gap:1rem;
 }
-.tcard .stars{color:#EAB308;letter-spacing:0.1em;font-size:1rem}
+.tcard .stars{color:var(--red);letter-spacing:0.12em;font-size:1rem}
 .tcard q{
-  font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
-  font-size:1.15rem;line-height:1.45;color:var(--navy);quotes:none;letter-spacing:-0.005em;
+  font-family:'Inter',sans-serif;font-weight:600;
+  font-size:1.05rem;line-height:1.5;color:var(--ink);quotes:none;
 }
 .tcard q::before{content:'\201C'}
 .tcard q::after{content:'\201D'}
-.tcard .who{margin-top:auto;padding-top:0.75rem;border-top:1px solid var(--line);font-size:0.86rem}
-.tcard .who strong{display:block;color:var(--navy);font-weight:700}
-.tcard .who span{color:var(--slate);font-size:0.78rem;font-weight:500;letter-spacing:0.04em}
+.tcard .who{margin-top:auto;padding-top:0.85rem;border-top:1px solid var(--line);font-size:0.86rem}
+.tcard .who strong{
+  display:block;font-family:'Oswald',sans-serif;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.04em;color:var(--blue);font-size:0.95rem;
+}
+.tcard .who span{
+  font-family:'Oswald',sans-serif;font-weight:500;
+  color:var(--red);font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;margin-top:0.15rem;
+}
 
-/* ================= FRANCHISE BLOCK ================= */
-.franchise{
-  background:var(--sand);
-  position:relative;overflow:hidden;
-}
+/* ===== FRANCHISE ===== */
+.franchise{background:#fff;position:relative}
 .franchise-inner{
-  display:grid;grid-template-columns:1fr;gap:3rem;align-items:center;
-  padding:5rem 0;
+  display:grid;grid-template-columns:1fr;gap:3rem;align-items:stretch;
 }
-@media(min-width:900px){.franchise-inner{grid-template-columns:1.1fr 0.9fr;gap:5rem}}
-.franchise-content .h-eyebrow{color:var(--navy);margin-bottom:1rem;display:inline-block;background:rgba(11,31,58,0.06);padding:0.35rem 0.75rem;border-radius:999px}
+@media(min-width:900px){.franchise-inner{grid-template-columns:1.05fr 0.95fr;gap:0}}
+.franchise-content{
+  padding:5rem 2rem;
+  background:var(--cream);
+  border-top:5px solid var(--red);
+  border-bottom:5px solid var(--blue);
+}
+@media(min-width:900px){.franchise-content{padding:5rem 3rem 5rem 1.5rem}}
+.franchise-content .eyebrow{color:var(--red);margin-bottom:0.85rem;display:inline-block}
 .franchise-content h2{
-  font-family:'Archivo',sans-serif;font-weight:900;
-  font-size:clamp(2rem,4.5vw,3.4rem);letter-spacing:-0.025em;line-height:1;color:var(--navy);
+  font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;
+  font-size:clamp(2.2rem,5vw,3.8rem);letter-spacing:0.005em;line-height:0.98;color:var(--blue);
   margin-bottom:1.25rem;
 }
-.franchise-content h2 .ital{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
-.franchise-content p{color:var(--slate);font-size:1.05rem;line-height:1.65;margin-bottom:1.25rem}
+.franchise-content h2 .red{color:var(--red);display:block}
+.franchise-content p{color:var(--gray-1);font-size:1.05rem;line-height:1.65;margin-bottom:1.25rem;font-weight:500}
 .franchise-stats{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0;
-  padding:1.5rem 0;border-top:1px solid rgba(11,31,58,0.1);border-bottom:1px solid rgba(11,31,58,0.1);
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--blue);
+  border:2px solid var(--blue);
+  margin:2rem 0;
 }
-.fs .num{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.8rem;color:var(--navy);letter-spacing:-0.02em;line-height:1}
-.fs .lbl{font-size:0.74rem;color:var(--slate);font-weight:500;letter-spacing:0.04em;margin-top:0.4rem}
+.fs{background:#fff;padding:1.2rem 0.85rem;text-align:center}
+.fs .num{
+  font-family:'Anton',sans-serif;font-size:2rem;color:var(--red);line-height:1;letter-spacing:0.02em;
+}
+.fs .lbl{
+  font-family:'Oswald',sans-serif;font-size:0.7rem;color:var(--blue);font-weight:600;
+  letter-spacing:0.14em;text-transform:uppercase;margin-top:0.45rem;
+}
 .franchise-card{
-  background:var(--navy);color:#fff;
-  border-radius:18px;padding:2.5rem;
+  background:var(--blue);color:#fff;
+  padding:5rem 2rem;
+  border-top:5px solid var(--red);
+  border-bottom:5px solid var(--red);
   position:relative;overflow:hidden;
-  box-shadow:0 30px 60px -25px rgba(11,31,58,0.4);
 }
-.franchise-card::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 100% 0%, rgba(0,180,200,0.3), transparent 55%);
-}
-.franchise-card-inner{position:relative;z-index:1}
+@media(min-width:900px){.franchise-card{padding:5rem 3rem}}
 .franchise-card .lbl{
-  font-family:'Archivo',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.18em;
-  text-transform:uppercase;color:var(--cyan-2);margin-bottom:1.25rem;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:0.72rem;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--red);margin-bottom:1.25rem;
 }
 .franchise-card h3{
-  font-family:'Archivo',sans-serif;font-weight:900;font-size:2rem;line-height:1.05;letter-spacing:-0.02em;
-  color:#fff;margin-bottom:1rem;
+  font-family:'Anton',sans-serif;font-weight:400;font-size:2.2rem;line-height:0.98;letter-spacing:0.005em;
+  color:#fff;margin-bottom:1rem;text-transform:uppercase;
 }
-.franchise-card h3 .ital{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
-.franchise-card p{color:rgba(255,255,255,0.78);font-size:0.98rem;line-height:1.6;margin-bottom:1.75rem}
+.franchise-card p{color:rgba(255,255,255,0.85);font-size:1rem;line-height:1.6;margin-bottom:1.85rem;font-weight:500}
 .fc-bullets{display:flex;flex-direction:column;gap:0.7rem;margin-bottom:2rem}
 .fc-bullets li{
   list-style:none;display:flex;align-items:flex-start;gap:0.7rem;
-  font-size:0.92rem;color:rgba(255,255,255,0.85);line-height:1.45;
+  font-size:0.92rem;color:#fff;line-height:1.45;font-weight:500;
 }
-.fc-bullets li::before{
-  content:'';width:18px;height:18px;border-radius:50%;
-  background:var(--cyan);color:var(--navy);
-  display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;
-  background-image:linear-gradient(var(--cyan),var(--cyan));
-  margin-top:2px;
-}
-.fc-bullets li::before{content:'✓';font-size:0.7rem;font-weight:900}
+.fc-bullets li::before{content:'★';color:var(--red);font-size:1rem;flex-shrink:0}
 
-/* ================= FINAL CTA ================= */
-.final{
-  background:#fff;padding:6rem 0;
-}
+/* ===== FINAL CTA ===== */
+.final{background:#fff;padding:6rem 0}
 .final-inner{
-  background:var(--navy);color:#fff;border-radius:24px;
-  padding:4rem 2rem;text-align:center;position:relative;overflow:hidden;
-  background-image:
-    radial-gradient(ellipse at 0% 0%, rgba(0,180,200,0.25), transparent 50%),
-    radial-gradient(ellipse at 100% 100%, rgba(6,214,224,0.18), transparent 55%),
-    var(--navy);
+  background:var(--blue);color:#fff;
+  padding:4rem 2rem;text-align:center;position:relative;
+  border-top:6px solid var(--red);
+  border-bottom:6px solid var(--red);
 }
+.final-inner::before,.final-inner::after{
+  content:'★ ★ ★ ★ ★';position:absolute;left:0;right:0;
+  font-size:0.85rem;color:var(--red);letter-spacing:1.2rem;
+}
+.final-inner::before{top:0.85rem}
+.final-inner::after{bottom:0.85rem}
 .final-inner h2{
-  font-family:'Archivo',sans-serif;font-weight:900;
-  font-size:clamp(2rem,5vw,4rem);letter-spacing:-0.025em;line-height:1;color:#fff;margin-bottom:1.25rem;
+  font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;
+  font-size:clamp(2.2rem,5.5vw,4.5rem);letter-spacing:0.005em;line-height:0.95;color:#fff;
+  margin:1.75rem 0 1rem;
 }
-.final-inner h2 .ital{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--cyan-2)}
-.final-inner p{color:rgba(255,255,255,0.78);font-size:1.1rem;max-width:32rem;margin:0 auto 2rem}
-.final-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:0.75rem}
+.final-inner h2 .red{color:var(--red)}
+.final-inner p{color:rgba(255,255,255,0.85);font-size:1.1rem;max-width:36rem;margin:0 auto 2rem;font-weight:500}
+.final-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:0.75rem;margin-bottom:1rem}
 
-/* ================= FOOTER ================= */
-footer{background:var(--ink);color:#94a3b8;padding:4rem 0 2rem}
+/* ===== FOOTER ===== */
+footer{background:var(--ink);color:#9aa3b3;padding:4rem 0 2rem;position:relative}
 footer .wrap{display:grid;grid-template-columns:1fr;gap:2.5rem}
 @media(min-width:900px){footer .wrap{grid-template-columns:1.5fr 1fr 1fr 1fr}}
 .foot-brand{display:flex;flex-direction:column;gap:1rem;max-width:24rem}
-.foot-brand p{font-size:0.9rem;color:#64748b;line-height:1.6}
-footer h5{font-family:'Archivo',sans-serif;font-weight:800;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:1rem}
+.foot-brand img{height:60px;width:auto;filter:brightness(0) invert(1)}
+.foot-brand p{font-size:0.92rem;color:#6b7280;line-height:1.6}
+.foot-brand strong{color:#fff;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:0.04em}
+footer h5{
+  font-family:'Oswald',sans-serif;font-weight:700;font-size:0.78rem;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--red);margin-bottom:1rem;
+}
 footer ul{list-style:none;display:flex;flex-direction:column;gap:0.55rem}
-footer ul a{color:#94a3b8;font-size:0.9rem}
-footer ul a:hover{color:var(--cyan-2)}
+footer ul a{
+  color:#9aa3b3;font-family:'Oswald',sans-serif;font-weight:500;
+  text-transform:uppercase;font-size:0.82rem;letter-spacing:0.06em;
+}
+footer ul a:hover{color:#fff}
 .foot-bottom{
   border-top:1px solid #1e293b;margin-top:3rem;padding-top:1.5rem;
-  display:flex;flex-direction:column;gap:0.75rem;justify-content:space-between;font-size:0.78rem;color:#475569;
+  display:flex;flex-direction:column;gap:0.75rem;justify-content:space-between;
+  font-family:'Oswald',sans-serif;font-weight:500;
+  font-size:0.78rem;color:#475569;letter-spacing:0.08em;text-transform:uppercase;
 }
 @media(min-width:768px){.foot-bottom{flex-direction:row;align-items:center}}
-
-/* mobile only utility */
-@media(max-width:1023px){
-  .util-left .util-pill{display:none}
-  .util-right span.util-only-desktop{display:none}
-}
 </style>
 </head>
 <body>
 
-<!-- ================= UTILITY BAR ================= -->
+<!-- ===== UTILITY BAR ===== -->
 <div class="utility">
   <div class="wrap">
     <div class="util-left">
+      <span class="star">★ ★ ★</span>
       <a href="#commercial">Commercial RFP</a>
-      <a href="#franchise">Franchise opportunities</a>
-      <a href="#" class="util-pill">Now servicing FL · expanding nationally</a>
+      <a href="#franchise">Own a Territory</a>
     </div>
     <div class="util-right">
-      <span class="util-only-desktop">24/7 commercial dispatch</span>
-      <a href="tel:18003947665"><strong>(800) 394-POOL</strong></a>
+      <span style="color:#cdd6e8;font-weight:500">24/7 Commercial Dispatch</span>
+      <a href="tel:18003947665">(800) 394-POOL</a>
     </div>
   </div>
 </div>
 
-<!-- ================= HEADER ================= -->
+<div class="flag-stripe"></div>
+
+<!-- ===== HEADER ===== -->
 <header class="header">
   <div class="wrap">
     <a href="/" class="brand" aria-label="Pool All-Stars">
-      <div class="brand-mark">P★</div>
-      <div class="brand-text">POOL ALL-STARS<small>America's pool company</small></div>
+      <img src="assets/images/logo.png" alt="Pool All-Stars logo">
+      <div class="brand-text">POOL ALL-STARS<small>America's Pool Team</small></div>
     </a>
     <nav class="primary">
-      <a href="#commercial" class="has-caret">Commercial</a>
-      <a href="#residential" class="has-caret">Residential</a>
+      <a href="#commercial">Commercial</a>
+      <a href="#residential">Residential</a>
       <a href="#footprint">Service Map</a>
       <a href="#franchise">Franchise</a>
       <a href="#">Company</a>
     </nav>
     <div class="header-cta">
-      <div class="header-phone">(800) 394-POOL<small>Talk to a pro</small></div>
-      <a href="#cta" class="btn btn-dark btn-arrow">Get a quote</a>
+      <div class="header-phone">(800) 394-POOL<small>Talk to a Pro</small></div>
+      <a href="#cta" class="btn btn-red">Get a Quote</a>
     </div>
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
+<!-- ===== HERO ===== -->
 <section class="hero">
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-left">
-        <div class="hero-eyebrow"><span class="dot"></span> National pool care · Built for scale</div>
+        <div class="hero-pill"><span class="star">★</span> National Pool Service · Built for Scale</div>
         <h1>
-          One company.<br>
-          Every property.<br>
-          <span class="ital">Crystal clear,</span> <span class="accent">always.</span>
+          America's<br>
+          <span class="red">Pool Team.</span>
         </h1>
         <p class="hero-sub">
-          Pool All-Stars services thousands of residential pools and commercial properties across America &mdash; with the systems, certifications, and accountability owners and property managers expect from a national operator.
+          Professional pool service for residential homeowners and commercial property managers — backed by the systems, certifications, and accountability of a true national operator.
         </p>
-
-        <div class="paths" role="navigation" aria-label="Choose your path">
-          <a class="path" href="#commercial">
-            <div class="path-label">
-              <div class="path-icon">CM</div>
-              <div class="path-text">
-                <strong>I manage a property</strong>
-                <span>HOAs · Hotels · Resorts · Condos · Fitness · Municipal</span>
-              </div>
-            </div>
-            <div class="path-arrow">→</div>
-          </a>
-          <a class="path" href="#residential">
-            <div class="path-label">
-              <div class="path-icon">HM</div>
-              <div class="path-text">
-                <strong>I own a home</strong>
-                <span>Weekly service · Repairs · Green-pool recovery</span>
-              </div>
-            </div>
-            <div class="path-arrow">→</div>
-          </a>
+        <div class="hero-ctas">
+          <a href="#cta" class="btn btn-red">Get a Free Quote</a>
+          <a href="tel:18003947665" class="btn btn-outline-blue">Call (800) 394-POOL</a>
+        </div>
+        <div class="hero-trust">
+          <div class="item"><span class="star-icon">★★★★★</span> <strong>500+ Reviews</strong></div>
+          <div class="item">Licensed &amp; Insured</div>
+          <div class="item">CPO Certified</div>
+          <div class="item"><strong>BBB A+</strong></div>
+          <div class="item"><strong>17 Years</strong></div>
         </div>
       </div>
-
       <div class="hero-right">
-        <div class="hero-card-stack">
-          <div class="hero-photo" role="img" aria-label="Crystal clear pool"></div>
-          <div class="hero-floater fl-1">
-            <div class="num">5,000<em>+</em></div>
-            <div class="lbl">pools serviced<br>under one playbook</div>
+        <div class="hero-photo" role="img" aria-label="Crystal clear pool">
+          <div class="badge">★ All-Star Service</div>
+          <div class="stripe-bottom">
+            <div>
+              <div class="num">5,000+</div>
+              <div class="lbl">Pools Serviced</div>
+            </div>
+            <div>
+              <div class="num">17 Yrs</div>
+              <div class="lbl">In Operation</div>
+            </div>
           </div>
         </div>
       </div>
@@ -705,142 +707,148 @@ footer ul a:hover{color:var(--cyan-2)}
   </div>
 </section>
 
-<!-- ================= STATS STRIP ================= -->
-<section class="stats">
+<!-- ===== SCOREBOARD STATS ===== -->
+<section class="scoreboard">
   <div class="wrap">
-    <div class="stat">
-      <div class="num">5,000<em>+</em></div>
-      <div class="lbl">Residential & commercial pools serviced</div>
+    <div class="score">
+      <div class="num">5,000<span>+</span></div>
+      <div class="lbl">Pools Serviced</div>
     </div>
-    <div class="stat">
-      <div class="num">17<em>yrs</em></div>
-      <div class="lbl">Operating excellence since 2009</div>
+    <div class="score">
+      <div class="num">17<span>yrs</span></div>
+      <div class="lbl">Since 2009</div>
     </div>
-    <div class="stat">
-      <div class="num">100<em>%</em></div>
-      <div class="lbl">CPO-certified, licensed, insured</div>
+    <div class="score">
+      <div class="num">100<span>%</span></div>
+      <div class="lbl">CPO Certified</div>
     </div>
-    <div class="stat">
-      <div class="num">A<em>+</em></div>
-      <div class="lbl">BBB rated · 500+ five-star reviews</div>
+    <div class="score">
+      <div class="num">A<span>+</span></div>
+      <div class="lbl">BBB Rated</div>
     </div>
   </div>
 </section>
 
-<!-- ================= COMMERCIAL ================= -->
+<!-- ===== COMMERCIAL ===== -->
 <section class="block commercial" id="commercial">
   <div class="wrap">
-    <div class="head-row">
-      <div class="section-head" style="margin-bottom:0">
-        <span class="h-eyebrow">For property managers</span>
-        <h2>Commercial pool care, <span class="ital">without the surprises.</span></h2>
-        <p>From single-property HOAs to multi-site hotel groups, we operate on standardized SOPs, COI-on-file compliance, and dedicated account management &mdash; so the people running your buildings can stop worrying about the pool.</p>
-      </div>
+    <div class="section-head">
+      <span class="eyebrow">For Property Managers</span>
+      <h2>Commercial Pool Care.<br><span class="red">No Surprises.</span></h2>
+      <p>From single-property HOAs to multi-site hotel groups, we operate on standardized SOPs, COI-on-file compliance, and dedicated account management — so the people running your buildings can stop worrying about the pool.</p>
     </div>
 
     <div class="commercial-types">
       <div class="ct">
-        <div class="ct-icon">HO</div>
-        <h3>Hotels & Resorts</h3>
+        <div class="ct-num">01</div>
+        <h3>Hotels &amp; Resorts</h3>
         <div class="ct-meta">Guest-facing service, dawn cleanings, 24/7 dispatch, brand standards.</div>
+        <div class="ct-arrow">View →</div>
       </div>
       <div class="ct">
-        <div class="ct-icon">HA</div>
-        <h3>HOAs & Condos</h3>
+        <div class="ct-num">02</div>
+        <h3>HOAs &amp; Condos</h3>
         <div class="ct-meta">Board-friendly reporting, multi-pool routes, predictable monthly billing.</div>
+        <div class="ct-arrow">View →</div>
       </div>
       <div class="ct">
-        <div class="ct-icon">FT</div>
-        <h3>Fitness & Aquatic</h3>
+        <div class="ct-num">03</div>
+        <h3>Fitness &amp; Aquatic</h3>
         <div class="ct-meta">Health-code chemistry, member-load chlorine control, log compliance.</div>
+        <div class="ct-arrow">View →</div>
       </div>
       <div class="ct">
-        <div class="ct-icon">MP</div>
+        <div class="ct-num">04</div>
         <h3>Multi-Property</h3>
-        <div class="ct-meta">One contract, one PM contact, one consolidated invoice across portfolios.</div>
+        <div class="ct-meta">One contract, one PM contact, consolidated invoicing across portfolios.</div>
+        <div class="ct-arrow">View →</div>
       </div>
       <div class="ct">
-        <div class="ct-icon">MN</div>
-        <h3>Municipal & Schools</h3>
+        <div class="ct-num">05</div>
+        <h3>Municipal &amp; Schools</h3>
         <div class="ct-meta">Procurement-ready bids, public-pool standards, audit-ready records.</div>
+        <div class="ct-arrow">View →</div>
       </div>
       <div class="ct">
-        <div class="ct-icon">VR</div>
+        <div class="ct-num">06</div>
         <h3>Vacation Rentals</h3>
         <div class="ct-meta">Turnover-day service, photo-confirmed visits, rental-platform ready.</div>
+        <div class="ct-arrow">View →</div>
       </div>
       <div class="ct">
-        <div class="ct-icon">WP</div>
+        <div class="ct-num">07</div>
         <h3>Water Parks</h3>
-        <div class="ct-meta">High-volume systems, slide & feature plumbing, peak-season staffing.</div>
+        <div class="ct-meta">High-volume systems, slide &amp; feature plumbing, peak-season staffing.</div>
+        <div class="ct-arrow">View →</div>
       </div>
       <div class="ct">
-        <div class="ct-icon">CC</div>
+        <div class="ct-num">08</div>
         <h3>Country Clubs</h3>
-        <div class="ct-meta">Member-experience priority, lap pool & resort pool dual specs.</div>
+        <div class="ct-meta">Member-experience priority, lap pool &amp; resort pool dual specs.</div>
+        <div class="ct-arrow">View →</div>
       </div>
     </div>
 
     <div class="commercial-cta">
       <div>
-        <h3>Replace your pool vendor in 30 days &mdash; or your first month is free.</h3>
+        <h3>Replace Your Pool Vendor in 30 Days.</h3>
         <p>Send us your current scope, RFP, or last 60 days of service reports. We'll return a fixed-rate proposal, COI on file, and a transition plan that doesn't disrupt your guests, members, or residents.</p>
         <div class="ctas">
-          <a href="#" class="btn btn-primary btn-arrow">Request commercial proposal</a>
-          <a href="tel:18003947665" class="btn btn-ghost">Call (800) 394-POOL</a>
+          <a href="#" class="btn btn-white">Request Commercial Proposal</a>
+          <a href="tel:18003947665" class="btn btn-outline-white">(800) 394-POOL</a>
         </div>
       </div>
       <div class="cc-checks">
-        <div class="cc-check"><span>✓</span> Certificate of insurance on file in 24 hours</div>
-        <div class="cc-check"><span>✓</span> Dedicated account manager, single point of contact</div>
-        <div class="cc-check"><span>✓</span> Health-code-ready chemistry & log compliance</div>
-        <div class="cc-check"><span>✓</span> Net-30 billing, consolidated multi-property invoicing</div>
-        <div class="cc-check"><span>✓</span> Photo-confirmed visits & service-day reporting</div>
+        <div class="cc-check">Certificate of Insurance on file in 24 hrs</div>
+        <div class="cc-check">Dedicated account manager · single POC</div>
+        <div class="cc-check">Health-code-ready chemistry &amp; logs</div>
+        <div class="cc-check">Net-30 billing · multi-property invoicing</div>
+        <div class="cc-check">Photo-confirmed visits &amp; reporting</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= SYSTEM ================= -->
+<!-- ===== SYSTEM ===== -->
 <section class="block system" id="system">
   <div class="wrap">
     <div class="section-head">
-      <span class="h-eyebrow">How we operate</span>
-      <h2>The All-Stars System.<br><span class="ital">A national operating playbook.</span></h2>
-      <p>Pool service the way it should run at scale &mdash; route-optimized, photo-documented, and accountable to a number, not a memory. The same playbook every territory follows.</p>
+      <span class="eyebrow">How We Operate</span>
+      <h2>The All-Star Playbook.<br><span class="red">Run It Anywhere.</span></h2>
+      <p>Pool service the way it should run at scale — route-optimized, photo-documented, and accountable to a number, not a memory. The same playbook every territory follows.</p>
     </div>
 
     <div class="system-grid">
       <div class="sys-card">
         <div class="sys-num">01</div>
-        <h3>Route &amp; chemistry tech</h3>
-        <p>Every visit logged on a tablet: GPS-verified arrival, time on site, water readings, dosing, photos before and after. Owners and managers get the report the same day.</p>
-        <div class="sys-tag">Built-in accountability</div>
+        <h3>Route &amp; Chemistry Tech</h3>
+        <p>Every visit logged on a tablet: GPS-verified arrival, time on site, water readings, dosing, and before/after photos. Owners get the report the same day.</p>
+        <div class="sys-tag">★ Built-in Accountability</div>
       </div>
       <div class="sys-card">
         <div class="sys-num">02</div>
-        <h3>SOP-driven service</h3>
-        <p>A 12-point weekly checklist, plus property-type-specific protocols for resort pools, HOAs, lap pools, vinyl, and salt systems. No technician improvising.</p>
-        <div class="sys-tag">Consistent everywhere</div>
+        <h3>SOP-Driven Service</h3>
+        <p>A 12-point weekly checklist plus property-type-specific protocols for resort pools, HOAs, lap pools, vinyl, and salt systems. No technician improvising.</p>
+        <div class="sys-tag">★ Consistent Everywhere</div>
       </div>
       <div class="sys-card">
         <div class="sys-num">03</div>
-        <h3>Compliance &amp; reporting</h3>
+        <h3>Compliance &amp; Reporting</h3>
         <p>COI on file, CPO-certified techs, OSHA-compliant chemical handling, and monthly portfolio reports your facilities team can hand straight to inspectors.</p>
-        <div class="sys-tag">Audit-ready by default</div>
+        <div class="sys-tag">★ Audit-Ready by Default</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= OPS BANNER (FLEET) ================= -->
-<section class="ops-banner">
-  <div class="ops-banner-grid">
-    <div class="ops-text">
-      <span class="h-eyebrow" style="color:var(--cyan-2);margin-bottom:1rem;display:inline-block">The fleet</span>
-      <h2>Branded trucks. <span class="ital">Uniformed pros.</span> Stocked for anything.</h2>
-      <p>Every truck rolls out fully equipped &mdash; chemistry kits, vacuums, filter media, salt-cell tools, and replacement parts &mdash; so the technician at your property doesn't have to come back tomorrow to fix what they spotted today.</p>
-      <ul class="ops-list">
+<!-- ===== FLEET ===== -->
+<section class="fleet">
+  <div class="fleet-grid">
+    <div class="fleet-text">
+      <span class="eyebrow">The Fleet</span>
+      <h2>Branded Trucks. Pro Techs. Stocked for Anything.</h2>
+      <p>Every truck rolls out fully equipped — chemistry kits, vacuums, filter media, salt-cell tools, replacement parts — so the technician at your property doesn't have to come back tomorrow to fix what they spotted today.</p>
+      <ul class="fleet-list">
         <li>Fully stocked vehicles</li>
         <li>Uniformed technicians</li>
         <li>Background checked</li>
@@ -849,27 +857,28 @@ footer ul a:hover{color:var(--cyan-2)}
         <li>Photo-confirmed service</li>
       </ul>
       <div>
-        <a href="#cta" class="btn btn-primary btn-arrow">Schedule a walk-through</a>
+        <a href="#cta" class="btn btn-white">Schedule a Walk-Through</a>
       </div>
     </div>
-    <div class="ops-img" role="img" aria-label="Pool All-Stars branded service truck"></div>
+    <div class="fleet-img" role="img" aria-label="Pool All-Stars branded service truck"></div>
   </div>
 </section>
 
-<!-- ================= RESIDENTIAL ================= -->
+<!-- ===== RESIDENTIAL ===== -->
 <section class="block residential" id="residential">
   <div class="wrap">
     <div class="res-grid">
       <div class="res-image">
-        <div class="res-quote">
-          "We switched to Pool All-Stars and never looked back. Same tech, every week, perfect water."
-          <div class="res-quote-attr">JENNIFER M. · TAMPA, FL</div>
+        <div class="quote-block">
+          <div class="stars">★★★★★</div>
+          <div class="text">"Switched to Pool All-Stars and never looked back. Same tech, every week, perfect water."</div>
+          <div class="who">Jennifer M. · Tampa, FL</div>
         </div>
       </div>
       <div class="res-content">
-        <span class="h-eyebrow" style="color:var(--cyan);margin-bottom:1rem;display:inline-block">For homeowners</span>
-        <h2>Same standard. <span class="ital">Your backyard.</span></h2>
-        <p>The same SOPs, certifications, and reporting we run for hotel groups &mdash; scaled down to the pool behind your house. Weekly service, all chemicals included, the same dedicated technician every visit.</p>
+        <span class="eyebrow" style="color:var(--red);margin-bottom:0.85rem;display:inline-block">For Homeowners</span>
+        <h2>Same Standard.<br><span class="red">Your Backyard.</span></h2>
+        <p>The same SOPs, certifications, and reporting we run for hotel groups — scaled down to the pool behind your house. Weekly service, all chemicals included, the same technician every visit.</p>
         <ul class="res-checks">
           <li>No long-term contracts</li>
           <li>All chemicals included</li>
@@ -879,78 +888,76 @@ footer ul a:hover{color:var(--cyan-2)}
           <li>Equipment repair</li>
         </ul>
         <div style="display:flex;flex-wrap:wrap;gap:0.75rem">
-          <a href="#cta" class="btn btn-dark btn-arrow">Get a free home quote</a>
-          <a href="#" class="btn btn-outline">See pricing</a>
+          <a href="#cta" class="btn btn-red">Get a Free Quote</a>
+          <a href="#" class="btn btn-outline-blue">See Pricing</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= NATIONAL FOOTPRINT ================= -->
+<!-- ===== FOOTPRINT MAP ===== -->
 <section class="footprint" id="footprint">
-  <div class="wrap fp-inner">
+  <div class="wrap">
     <div class="fp-head">
-      <span class="h-eyebrow">National footprint</span>
-      <h2>One brand, <span class="ital">every state we serve.</span></h2>
+      <span class="eyebrow">National Footprint</span>
+      <h2>One Brand.<br><span class="red">Every State We Serve.</span></h2>
       <p>Headquartered in Florida. Building toward national coverage through company-operated routes and franchise territory partners.</p>
     </div>
 
     <div class="fp-map">
-      <!-- Stylized US silhouette using a simple rounded-rect grid as placeholder -->
       <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" aria-label="US service map">
-        <!-- simplified state-ish blocks; placeholder geometry -->
         <g>
           <!-- west -->
-          <rect class="state expanding" x="40" y="80"  width="80" height="60" rx="6"/>
-          <rect class="state"          x="40" y="150" width="80" height="60" rx="6"/>
-          <rect class="state"          x="40" y="220" width="80" height="60" rx="6"/>
-          <rect class="state expanding" x="130" y="80" width="70" height="80" rx="6"/>
-          <rect class="state"          x="130" y="170" width="70" height="80" rx="6"/>
-          <rect class="state expanding" x="210" y="120" width="80" height="100" rx="6"/>
+          <rect class="state expanding" x="40" y="80"  width="80" height="60"/>
+          <rect class="state"          x="40" y="150" width="80" height="60"/>
+          <rect class="state"          x="40" y="220" width="80" height="60"/>
+          <rect class="state expanding" x="130" y="80" width="70" height="80"/>
+          <rect class="state"          x="130" y="170" width="70" height="80"/>
+          <rect class="state expanding" x="210" y="120" width="80" height="100"/>
           <!-- midwest -->
-          <rect class="state"          x="300" y="80" width="70" height="60" rx="6"/>
-          <rect class="state"          x="300" y="150" width="70" height="60" rx="6"/>
-          <rect class="state"          x="300" y="220" width="70" height="60" rx="6"/>
-          <rect class="state expanding" x="380" y="80" width="70" height="60" rx="6"/>
-          <rect class="state"          x="380" y="150" width="70" height="60" rx="6"/>
-          <rect class="state expanding" x="380" y="220" width="70" height="60" rx="6"/>
-          <rect class="state"          x="460" y="80" width="70" height="60" rx="6"/>
-          <rect class="state expanding" x="460" y="150" width="70" height="60" rx="6"/>
-          <rect class="state"          x="460" y="220" width="70" height="60" rx="6"/>
+          <rect class="state"          x="300" y="80" width="70" height="60"/>
+          <rect class="state"          x="300" y="150" width="70" height="60"/>
+          <rect class="state"          x="300" y="220" width="70" height="60"/>
+          <rect class="state expanding" x="380" y="80" width="70" height="60"/>
+          <rect class="state"          x="380" y="150" width="70" height="60"/>
+          <rect class="state expanding" x="380" y="220" width="70" height="60"/>
+          <rect class="state"          x="460" y="80" width="70" height="60"/>
+          <rect class="state expanding" x="460" y="150" width="70" height="60"/>
+          <rect class="state"          x="460" y="220" width="70" height="60"/>
           <!-- south/east -->
-          <rect class="state"          x="540" y="80" width="70" height="60" rx="6"/>
-          <rect class="state expanding" x="540" y="150" width="70" height="60" rx="6"/>
-          <rect class="state expanding" x="540" y="220" width="70" height="60" rx="6"/>
-          <rect class="state"          x="620" y="80" width="70" height="60" rx="6"/>
-          <rect class="state expanding" x="620" y="150" width="70" height="60" rx="6"/>
-          <rect class="state active"   x="620" y="220" width="70" height="60" rx="6"/>
-          <!-- florida (active) -->
-          <rect class="state active"   x="600" y="290" width="100" height="60" rx="6"/>
-          <text x="650" y="328" fill="#0B1F3A" font-family="Archivo" font-weight="900" font-size="18" text-anchor="middle">FL</text>
+          <rect class="state"          x="540" y="80" width="70" height="60"/>
+          <rect class="state expanding" x="540" y="150" width="70" height="60"/>
+          <rect class="state expanding" x="540" y="220" width="70" height="60"/>
+          <rect class="state"          x="620" y="80" width="70" height="60"/>
+          <rect class="state expanding" x="620" y="150" width="70" height="60"/>
+          <rect class="state active"   x="620" y="220" width="70" height="60"/>
+          <!-- florida -->
+          <rect class="state active"   x="600" y="290" width="100" height="60"/>
+          <text x="650" y="328" fill="#fff" font-family="Oswald" font-weight="700" font-size="18" text-anchor="middle" letter-spacing="2">FL</text>
           <!-- texas -->
-          <rect class="state expanding" x="380" y="290" width="120" height="80" rx="6"/>
-          <text x="440" y="338" fill="rgba(255,255,255,0.7)" font-family="Archivo" font-weight="700" font-size="14" text-anchor="middle">TX</text>
-          <!-- california label -->
-          <text x="80" y="340" fill="rgba(255,255,255,0.7)" font-family="Archivo" font-weight="700" font-size="14" text-anchor="middle">CA</text>
-          <rect class="state expanding" x="40" y="290" width="80" height="60" rx="6"/>
+          <rect class="state expanding" x="380" y="290" width="120" height="80"/>
+          <text x="440" y="338" fill="#fff" font-family="Oswald" font-weight="600" font-size="14" text-anchor="middle" letter-spacing="2">TX</text>
+          <!-- ca -->
+          <rect class="state expanding" x="40" y="290" width="80" height="60"/>
+          <text x="80" y="328" fill="#fff" font-family="Oswald" font-weight="600" font-size="14" text-anchor="middle" letter-spacing="2">CA</text>
         </g>
       </svg>
       <div class="fp-legend">
-        <span class="key"><span class="swatch active"></span> Active service area</span>
-        <span class="key"><span class="swatch expanding"></span> Expanding · franchise territories available</span>
+        <span class="key"><span class="swatch active"></span> Active</span>
+        <span class="key"><span class="swatch expanding"></span> Expanding · Franchise Available</span>
         <span class="key"><span class="swatch future"></span> Roadmap</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= PROOF / CLIENTS / REVIEWS ================= -->
+<!-- ===== PROOF ===== -->
 <section class="block proof">
   <div class="wrap">
     <div class="section-head">
-      <span class="h-eyebrow">Trusted by</span>
-      <h2>Properties, portfolios, <span class="ital">and the people who manage them.</span></h2>
+      <span class="eyebrow">Trusted By</span>
+      <h2>Properties, Portfolios,<br><span class="red">And the People Who Run Them.</span></h2>
       <p>From single-pool HOAs to hotel groups with dozens of properties, our customers run on Pool All-Stars.</p>
     </div>
 
@@ -959,7 +966,7 @@ footer ul a:hover{color:var(--cyan-2)}
       <div class="logo-cell">BAYWATER<br>RESIDENCES</div>
       <div class="logo-cell">PINNACLE<br>HOA GROUP</div>
       <div class="logo-cell">CORAL CAY<br>RESORTS</div>
-      <div class="logo-cell">SUNSTATE<br>FITNESS CO.</div>
+      <div class="logo-cell">SUNSTATE<br>FITNESS</div>
       <div class="logo-cell">CITY OF<br>BRADENTON</div>
     </div>
 
@@ -969,7 +976,7 @@ footer ul a:hover{color:var(--cyan-2)}
         <q>Pool All-Stars manages all eight of our portfolio properties on one contract. Their reporting is the cleanest I've seen in pool service.</q>
         <div class="who">
           <strong>Maria S.</strong>
-          <span>VP OPS · COASTAL HOSPITALITY GROUP</span>
+          <span>VP Ops · Coastal Hospitality</span>
         </div>
       </div>
       <div class="tcard">
@@ -977,88 +984,83 @@ footer ul a:hover{color:var(--cyan-2)}
         <q>They sent the COI before the contract was even signed. That's how you know you're dealing with pros, not a guy with a truck.</q>
         <div class="who">
           <strong>Robert K.</strong>
-          <span>BOARD PRESIDENT · LAKEWOOD HOA</span>
+          <span>Board President · Lakewood HOA</span>
         </div>
       </div>
       <div class="tcard">
         <div class="stars">★★★★★</div>
-        <q>Three other companies couldn't keep our pool clear. Same tech every week, detailed reports &mdash; perfect water for over a year.</q>
+        <q>Three other companies couldn't keep our pool clear. Same tech every week, detailed reports — perfect water for over a year.</q>
         <div class="who">
           <strong>Jennifer M.</strong>
-          <span>HOMEOWNER · TAMPA, FL</span>
+          <span>Homeowner · Tampa, FL</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= FRANCHISE ================= -->
+<!-- ===== FRANCHISE ===== -->
 <section class="franchise" id="franchise">
-  <div class="wrap franchise-inner">
+  <div class="franchise-inner">
     <div class="franchise-content">
-      <span class="h-eyebrow">Own a territory</span>
-      <h2>Build a Pool All-Stars in <span class="ital">your market.</span></h2>
-      <p>We've spent 17 years engineering the operating system &mdash; routes, chemistry, reporting, sales, recurring revenue. Now we're licensing it. If you've got the work ethic and the territory, we've got the playbook.</p>
+      <span class="eyebrow">Own a Territory</span>
+      <h2>Build a Pool All-Stars in<br><span class="red">Your Market.</span></h2>
+      <p>We've spent 17 years engineering the operating system — routes, chemistry, reporting, sales, recurring revenue. Now we're licensing it. If you've got the work ethic and the territory, we've got the playbook.</p>
       <p>Discovery calls open in select markets across the Southeast, Texas, and the Sun Belt. Limited territories per metro.</p>
 
       <div class="franchise-stats">
-        <div class="fs"><div class="num">$0</div><div class="lbl">Territory royalty in year 1</div></div>
-        <div class="fs"><div class="num">90<em style="font-style:normal;color:var(--cyan)">d</em></div><div class="lbl">Pre-launch onboarding</div></div>
-        <div class="fs"><div class="num">1:1</div><div class="lbl">Operator coaching</div></div>
+        <div class="fs"><div class="num">$0</div><div class="lbl">Royalty Year 1</div></div>
+        <div class="fs"><div class="num">90D</div><div class="lbl">Onboarding</div></div>
+        <div class="fs"><div class="num">1:1</div><div class="lbl">Coaching</div></div>
       </div>
 
       <div style="display:flex;flex-wrap:wrap;gap:0.75rem">
-        <a href="#" class="btn btn-dark btn-arrow">Apply for a discovery call</a>
-        <a href="#" class="btn btn-outline">Download the FDD overview</a>
+        <a href="#" class="btn btn-red">Apply for Discovery Call</a>
+        <a href="#" class="btn btn-outline-blue">FDD Overview</a>
       </div>
     </div>
 
     <div class="franchise-card">
-      <div class="franchise-card-inner">
-        <div class="lbl">What franchisees get</div>
-        <h3>The full <span class="ital">All-Stars</span> stack.</h3>
-        <p>Plug into a brand customers already trust &mdash; backed by tooling, training, and a national marketing engine.</p>
-        <ul class="fc-bullets">
-          <li>Protected territory mapping &amp; lead routing</li>
-          <li>Branded fleet &amp; uniform program</li>
-          <li>Tech stack: routing, chemistry, reporting, billing</li>
-          <li>National brand &amp; SEO domain authority</li>
-          <li>Commercial sales playbook &amp; RFP templates</li>
-          <li>CPO certification &amp; technician training</li>
-        </ul>
-      </div>
+      <div class="lbl">★ What Franchisees Get</div>
+      <h3>The Full All-Stars Stack.</h3>
+      <p>Plug into a brand customers already trust — backed by tooling, training, and a national marketing engine.</p>
+      <ul class="fc-bullets">
+        <li>Protected territory mapping &amp; lead routing</li>
+        <li>Branded fleet &amp; uniform program</li>
+        <li>Tech stack: routing, chemistry, reporting, billing</li>
+        <li>National brand &amp; SEO domain authority</li>
+        <li>Commercial sales playbook &amp; RFP templates</li>
+        <li>CPO certification &amp; technician training</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ================= FINAL CTA ================= -->
+<!-- ===== FINAL CTA ===== -->
 <section class="final" id="cta">
   <div class="wrap">
     <div class="final-inner">
-      <span class="h-eyebrow" style="color:var(--cyan-2);display:inline-block;margin-bottom:1rem">Get started</span>
-      <h2>Ready for pools that <span class="ital">just work?</span></h2>
-      <p>Tell us about your property &mdash; or your home &mdash; and we'll send a fixed-rate proposal within one business day.</p>
+      <h2>Ready for Pools<br><span class="red">That Just Work?</span></h2>
+      <p>Tell us about your property — or your home — and we'll send a fixed-rate proposal within one business day.</p>
       <div class="final-ctas">
-        <a href="#" class="btn btn-primary btn-arrow">Get a free quote</a>
-        <a href="tel:18003947665" class="btn btn-ghost">Call (800) 394-POOL</a>
+        <a href="#" class="btn btn-red">Get a Free Quote</a>
+        <a href="tel:18003947665" class="btn btn-outline-white">Call (800) 394-POOL</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- ===== FOOTER ===== -->
+<div class="flag-stripe"></div>
 <footer>
   <div class="wrap">
     <div class="foot-brand">
-      <a href="/" class="brand">
-        <div class="brand-mark" style="background:linear-gradient(140deg,var(--navy),var(--cyan))">P★</div>
-        <div class="brand-text" style="color:#fff">POOL ALL-STARS<small style="color:#64748b">America's pool company</small></div>
-      </a>
-      <p>National professional pool care for residential homeowners and commercial property managers. Licensed, insured, CPO-certified.</p>
-      <p><strong style="color:#cbd5e1">(800) 394-POOL</strong> · 24/7 commercial dispatch</p>
+      <img src="assets/images/logo.png" alt="Pool All-Stars">
+      <p><strong>POOL ALL-STARS</strong><br>National professional pool care for residential homeowners and commercial property managers. Licensed, insured, CPO-certified.</p>
+      <p><strong>(800) 394-POOL</strong> · 24/7 commercial dispatch</p>
     </div>
     <div>
-      <h5>Commercial</h5>
+      <h5>★ Commercial</h5>
       <ul>
         <li><a href="#">Hotels &amp; Resorts</a></li>
         <li><a href="#">HOAs &amp; Condos</a></li>
@@ -1068,7 +1070,7 @@ footer ul a:hover{color:var(--cyan-2)}
       </ul>
     </div>
     <div>
-      <h5>Residential</h5>
+      <h5>★ Residential</h5>
       <ul>
         <li><a href="#">Weekly Service</a></li>
         <li><a href="#">Green-Pool Recovery</a></li>
@@ -1078,7 +1080,7 @@ footer ul a:hover{color:var(--cyan-2)}
       </ul>
     </div>
     <div>
-      <h5>Company</h5>
+      <h5>★ Company</h5>
       <ul>
         <li><a href="#">About</a></li>
         <li><a href="#">Service Map</a></li>
@@ -1088,8 +1090,8 @@ footer ul a:hover{color:var(--cyan-2)}
       </ul>
     </div>
   </div>
-  <div class="wrap foot-bottom" style="display:flex">
-    <div>© 2026 Pool All-Stars. All rights reserved.</div>
+  <div class="wrap foot-bottom">
+    <div>© 2026 Pool All-Stars · All Rights Reserved</div>
     <div>Licensed · Insured · CPO Certified · BBB A+</div>
   </div>
 </footer>
